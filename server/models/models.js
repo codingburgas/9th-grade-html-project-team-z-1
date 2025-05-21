@@ -19,7 +19,7 @@ const Accident = sequelize.define('accident', {
     description: {type: DataTypes.STRING},
     date: {type: DataTypes.DATE, allowNull: false},
     time: {type: DataTypes.TIME, allowNull: false},
-    state: {type: DataTypes.STRING, defaultValue: 'In Progress'},
+    state: {type: DataTypes.STRING, defaultValue: 'In Progress'}
 })
 
 const AccidentType = sequelize.define('accident_type', {
