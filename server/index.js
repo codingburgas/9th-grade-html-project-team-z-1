@@ -3,12 +3,16 @@ const express = require('express')
 const sequelize = require('./db')
 const router = require('./routes/index')
 const cors = require('cors')
+const errorHandler = require('./middlewares/errorHandlingMiddleware')
 
 const App = express()
 
 App.use(express.json())
 App.use(cors())
 App.use('/api', router)
+
+// The error handler must always be registered last
+App.use(errorHandler)
 
 App.get('/', (req, res) => {
     res.status(200).json({message: "All working"})
