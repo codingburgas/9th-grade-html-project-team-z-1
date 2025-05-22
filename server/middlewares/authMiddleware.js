@@ -13,7 +13,6 @@ module.exports = function(req, res, next) {
             return res.status(401).json({message: 'Not authenticated'})
     
         const decoded = jwt.verify(token, process.env.SECRET_KEY)
-    
         req.user = decoded
         next()
     } catch (err) {

@@ -3,14 +3,15 @@ const apiError = require('../errors/apiError')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 
-const generateJsonWebToken = (id, email, role) => {
+const generateJsonWebToken = (id, firstName, lastName, email, role) => {
     return jwt.sign(
-        {id: id, email: email, role: role},
+        {id: id, firstName: firstName, lastName: lastName, email: email, role: role},
         process.env.SECRET_KEY,
         {expiresIn: '24h'}
     )
 }
 
+// Contains methods for every route
 class UserController {
     async registration(req, res, next) {
         const {firstName, lastName, email, password, role} = req.body
@@ -25,7 +26,7 @@ class UserController {
 
         const hashPassword = await bcrypt.hash(password, 5)
         const user = await User.create({firstName, lastName, email, role, password: hashPassword})
-        const token = generateJsonWebToken(user.id, user.email, user.role)
+        const token = generateJsonWebToken(user.id, user.firstName, user.lastName, user.email, user.role)
 
         return res.json(token)
     }
@@ -40,12 +41,14 @@ class UserController {
         if (!bcrypt.compareSync(password, user.password))
             next(apiError.badRequest('Incorrect password.'))
 
-        const token = generateJsonWebToken(user.id, user.email, user.role)
+        const token = generateJsonWebToken(user.id, user.firstName, user.lastName, user.email, user.role)
         return res.json(token)
     }
 
     async check(req, res, next) {
-        return res.json({message: 'auth'})
+        const {id, firstName, lastName, email, role} = req.body
+        const token = generateJsonWebToken(id, firstName, lastName, email, role)
+        res.json(token)
     }
 }
 
