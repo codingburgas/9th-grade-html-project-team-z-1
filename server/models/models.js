@@ -48,6 +48,7 @@ const FireStation = sequelize.define('fire_station', {
 
 const FireEngine = sequelize.define('fire_engine', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, allowNull: false},
     state: {type: DataTypes.STRING, defaultValue: 'Free'},
     description: {type: DataTypes.STRING},
     image: {type: DataTypes.STRING}
