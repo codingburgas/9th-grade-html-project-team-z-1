@@ -17,12 +17,12 @@ const Accident = sequelize.define('accident', {
     latitude: {type: DataTypes.DECIMAL, allowNull: false},
     longtitude: {type: DataTypes.DECIMAL, allowNull: false},
     description: {type: DataTypes.STRING},
-    date: {type: DataTypes.DATE, allowNull: false},
-    time: {type: DataTypes.TIME, allowNull: false},
+    date: {type: DataTypes.STRING, allowNull: false},
+    time: {type: DataTypes.STRING, allowNull: false},
     state: {type: DataTypes.STRING, defaultValue: 'In Progress'}
 })
 
-const AccidentType = sequelize.define('accident_type', {
+const AccidentType = sequelize.define('type', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, allowNull: false},
 })
