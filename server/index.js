@@ -4,11 +4,15 @@ const sequelize = require('./db')
 const router = require('./routes/index')
 const cors = require('cors')
 const errorHandler = require('./middlewares/errorHandlingMiddleware')
+const fileUpload = require('express-fileupload')
+const path = require('path')
 
 const App = express()
 
 App.use(express.json())
 App.use(cors())
+App.use(fileUpload({}))
+App.use(express.static(path.resolve(__dirname, 'static')))
 App.use('/api', router)
 
 // The error handler must always be registered last

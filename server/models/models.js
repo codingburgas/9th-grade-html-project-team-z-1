@@ -31,7 +31,7 @@ const Firefighter = sequelize.define('firefighter', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     firstName: {type: DataTypes.STRING, allowNull: false},
     lastName: {type: DataTypes.STRING, allowNull: false},
-    state: {type: DataTypes.STRING, allowNull: false},
+    state: {type: DataTypes.STRING, defaultValue: 'Free', allowNull: false},
     image: {type: DataTypes.STRING},
 })
 
