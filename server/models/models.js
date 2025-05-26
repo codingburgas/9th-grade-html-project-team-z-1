@@ -17,8 +17,8 @@ const Accident = sequelize.define('accident', {
     latitude: {type: DataTypes.DECIMAL, allowNull: false},
     longtitude: {type: DataTypes.DECIMAL, allowNull: false},
     description: {type: DataTypes.STRING},
-    date: {type: DataTypes.STRING, allowNull: false},
-    time: {type: DataTypes.STRING, allowNull: false},
+    date: {type: DataTypes.DATE, allowNull: false},
+    time: {type: DataTypes.TIME, allowNull: false},
     state: {type: DataTypes.STRING, defaultValue: 'In Progress'}
 })
 
@@ -41,6 +41,7 @@ const FireTeam = sequelize.define('fire_team', {
 
 const FireStation = sequelize.define('fire_station', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, allowNull: false},
     address: {type: DataTypes.STRING, allowNull: false},
     latitude: {type: DataTypes.DECIMAL, allowNull: false},
     longtitude: {type: DataTypes.DECIMAL, allowNull: false},
@@ -63,8 +64,8 @@ const AccidentTeam = sequelize.define('accident_team', {
 })
 
 
-Accident.hasOne(AccidentType)
-AccidentType.belongsTo(Accident)
+AccidentType.hasOne(Accident)
+Accident.belongsTo(AccidentType)
 Accident.hasOne(FireTeam)
 FireTeam.belongsTo(Accident)
 
