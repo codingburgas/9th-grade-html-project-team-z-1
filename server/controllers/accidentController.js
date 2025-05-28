@@ -30,7 +30,7 @@ class accidentController {
             }
 
             if (type) {
-                whereClause.type = type
+                whereClause.typeId = type
             }
 
             const accidents = await Accident.findAndCountAll({where: whereClause, limit, offset})
@@ -59,7 +59,23 @@ class accidentController {
 
         if (deleteCount) res.json({message: 'Success'})
         else res.json({message: 'Failure'})
-        
+    }
+
+    async changeState(req, res, next) {
+        const accidentId = req.params.id
+        const {state} = req.body
+
+        try {
+            const accident = Accident.findByPk(accidentId)
+            
+            if (!accident) return res.status(404).json({message: 'Accident not found!'})
+            accident.state = state
+            await accident.save()
+
+            return res.json(accident)
+        } catch (err) {
+            next(Apierror.badRequest.err.message)
+        }
     }
 }
 

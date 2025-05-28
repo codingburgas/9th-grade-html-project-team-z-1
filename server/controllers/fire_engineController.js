@@ -2,6 +2,7 @@ const ApiError = require('../errors/apiError')
 const {FireEngine} = require('../models/models')
 const uuid = require('uuid')
 const path = require('path')
+const { IncomingMessage } = require('http')
 
 class fireEngineController {
     async add(req, res, next) {
@@ -42,6 +43,26 @@ class fireEngineController {
             return res.json(fireEngine)
         } catch (err) {
             next(Apierror.badRequest(err.message))
+        }
+    }
+
+    async remove(req, res) {
+        const {id} = req.body
+
+        let deleteCount = FireEngine.destroy({id})
+        if (deleteCount) return res.json({messa })
+    }
+
+    async assignAccident(req, res, next) {
+        const fireEngineId = req.params.id
+        const {accidentId} = req.body
+
+        try {
+             const fireEngine = FireEngine.findByPk(fireEngineId)
+             fireEngine.accidentId = accidentId
+             return res.json(fireEngine)
+        } catch (err) {
+            next(ApiError.badRequest(err.message))
         }
     }
 }

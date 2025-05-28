@@ -37,6 +37,7 @@ const Firefighter = sequelize.define('firefighter', {
 
 const FireTeam = sequelize.define('fire_team', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    name: {type: DataTypes.STRING, allowNull: false}
 })
 
 const FireStation = sequelize.define('fire_station', {
@@ -55,43 +56,20 @@ const FireEngine = sequelize.define('fire_engine', {
     image: {type: DataTypes.STRING}
 })
 
-const TeamAccident = sequelize.define('team_accident', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
-
-const AccidentTeam = sequelize.define('accident_team', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
-})
-
-
 AccidentType.hasOne(Accident)
 Accident.belongsTo(AccidentType)
+
 Accident.hasOne(FireTeam)
 FireTeam.belongsTo(Accident)
 
-AccidentTeam.hasOne(Accident)
-Accident.belongsTo(AccidentTeam)
-
-TeamAccident.hasOne(Accident)
-Accident.belongsTo(TeamAccident)
-
-TeamAccident.hasOne(Accident)
-Accident.belongsTo(TeamAccident)
-
-AccidentTeam.hasMany(FireTeam)
-FireTeam.belongsTo(AccidentTeam)
+Accident.hasOne(FireEngine)
+FireEngine.belongsTo(Accident)
 
 FireTeam.hasMany(Firefighter)
 Firefighter.belongsTo(FireTeam)
 
-FireTeam.hasOne(FireEngine)
-FireEngine.belongsTo(FireTeam)
-
 FireStation.hasMany(FireTeam)
 FireTeam.belongsTo(FireStation)
-
-Firefighter.hasOne(FireStation)
-FireStation.belongsTo(Firefighter)
 
 module.exports = {
     User,
@@ -100,7 +78,5 @@ module.exports = {
     Firefighter,
     FireTeam,
     FireStation,
-    FireEngine,
-    TeamAccident,
-    AccidentTeam
+    FireEngine
 }

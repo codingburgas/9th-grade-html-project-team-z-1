@@ -13,8 +13,14 @@ class AccidentController {
     }
 
     async getAll(req, res, next) {
+        let {limit, page} = req.query
+
+        limit = limit || 5
+        page = page || 1
+        let offset = page * limit - limit
+
         try {
-            const accidentTypes = await AccidentType.findAll()
+            const accidentTypes = await AccidentType.findAll({limit, offset})
             return res.json(accidentTypes)
         } catch (err) {
             next(ApiError.badRequest(err.message))

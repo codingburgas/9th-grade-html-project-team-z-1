@@ -1,4 +1,4 @@
-const FireStation = require('../models/models')
+const { FireStation } = require('../models/models')
 const ApiError = require('../errors/apiError')
 
 class fireStationController {
@@ -17,7 +17,6 @@ class fireStationController {
     async getAll(req, res, next) {
         try {
             let {limit, page} = req.query
-            
 
             limit = limit || 5
             page = page || 1
@@ -39,6 +38,14 @@ class fireStationController {
         } catch (err) {
             next(Apierror.badRequest(err.message))
         }
+    }
+
+    async remove(req, res) {
+        const {id} = req.body
+        const deleteCount = FireStation.destroy({where: {id}})
+
+        if (deleteCount) return res.json({message: "Success"})
+        else return res.json({message: "Failure"})
     }
 }
 
