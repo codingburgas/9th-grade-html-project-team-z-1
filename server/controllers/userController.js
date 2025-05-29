@@ -38,6 +38,7 @@ class UserController {
         if (!user) 
             next(apiError.badRequest('User not found.'))
         
+        // Comparing the password entered by the user and the hashed password from the database
         if (!bcrypt.compareSync(password, user.password))
             next(apiError.badRequest('Incorrect password.'))
 
@@ -45,7 +46,7 @@ class UserController {
         return res.json(token)
     }
 
-    async check(req, res, next) {
+    async check(req, res) {
         const {id, firstName, lastName, email, role} = req.body
         const token = generateJsonWebToken(id, firstName, lastName, email, role)
         res.json(token)
