@@ -1,6 +1,8 @@
+import Navbar from './components/Navbar'
+
 const App = () => {
   return (
-    <h1>WORKING!!!</h1>
+      <Navbar />
   );
 }
 

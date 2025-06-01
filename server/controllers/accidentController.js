@@ -1,6 +1,6 @@
 const {Accident, AccidentType} = require('../models/models')
 const Apierror = require('../errors/apiError')
-const { Op } = require('sequelize')
+const { Op, where } = require('sequelize')
 
 class accidentController {
     async create(req, res, next) {
@@ -24,7 +24,7 @@ class accidentController {
 
             let whereClause = {}
             if (startDate && endDate) {
-                whereClause.date = {
+                whereClause.startDate = {
                     [Op.between]: [new Date(startDate), new Date(endDate)]
                 }
             }
@@ -32,7 +32,7 @@ class accidentController {
             if (type) {
                 whereClause.typeId = type
             }
-
+            
             const accidents = await Accident.findAndCountAll({where: whereClause, limit, offset})
             return res.json(accidents)
         } catch (err) {

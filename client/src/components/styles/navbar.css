@@ -1,0 +1,9 @@
+body {
+    margin: 0;
+}
+
+nav {
+    width: 100vw;
+    height: 50%;
+    background-color: red;
+}
