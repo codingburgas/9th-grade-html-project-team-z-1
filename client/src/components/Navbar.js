@@ -7,7 +7,7 @@ const Navbar = observer(() => {
     const {theme, toggleTheme} = useTheme()
 
     return (
-        <nav>
+        <nav className='Primary'>
             <button className='change-theme'
                     onClick={toggleTheme}>
                 Change theme (now: {theme})

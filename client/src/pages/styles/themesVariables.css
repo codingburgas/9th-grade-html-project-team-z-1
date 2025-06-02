@@ -1,0 +1,21 @@
+body, .Primary {
+    transition: .2s;
+}
+
+body.dark {
+    background-color: #1e1901;
+    color: #eae9fc;
+}
+
+body.light {
+    background-color: #fef9e1;
+    color: #040316;
+}
+
+body.light .Primary {
+    background-color: #a51d1d;
+}
+
+body.dark .Primary {
+    background-color: #e25a5a;
+}

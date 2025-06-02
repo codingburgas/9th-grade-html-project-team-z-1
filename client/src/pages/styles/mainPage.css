@@ -1,9 +1,5 @@
-body.dark {
-    background-color: #222;
-    color: #fff;
-}
+@import url(./themesVariables.css);
 
 body {
     margin: 0;
-    transition: .2s;
 }

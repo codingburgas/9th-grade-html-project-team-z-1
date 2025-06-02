@@ -10,6 +10,7 @@ export const ThemeProvider = ({children}) => {
         return localStorage.getItem('theme') || 'light'
     })
 
+    
     useEffect(() => {
         document.body.className = ''
         document.body.classList.add(theme)

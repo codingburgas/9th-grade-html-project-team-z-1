@@ -1,5 +1,6 @@
 nav {
     width: 100vw;
-    height: 50%;
-    background-color: red;
+    height: 5vh;
+    display: flex;;
+    align-items: center;;
 }
