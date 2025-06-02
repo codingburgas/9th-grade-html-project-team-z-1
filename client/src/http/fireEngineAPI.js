@@ -13,12 +13,12 @@ export const getOneFireEngine = async (id) => {
 }
 
 export const addFireEngine = async (fireEngine) => {
-    const {data} = await $host.post('/api/fireengine', fireEngine)
+    const {data} = await $authHost.post('/api/fireengine', fireEngine)
     return data
 }
 
 export const deleteFireEngine = async (id) => {
-    const {data} = await $host.delete('/api/fireengine', id)
+    const {data} = await $authHost.delete('/api/fireengine', id)
     return data
 }
 
