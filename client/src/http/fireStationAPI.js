@@ -13,11 +13,11 @@ export const getOneFireStation = async (id) => {
 }
 
 export const addFireStation = async (fireStation) => {
-    const {data} = await $host.post('/api/firestation', fireStation)
+    const {data} = await $authHost.post('/api/firestation', fireStation)
     return data
 }
 
 export const deleteFireStation = async (id) => {
-    const {data} = await $host.delete('/api/firestation', id)
+    const {data} = await $authHost.delete('/api/firestation', id)
     return data
 }
