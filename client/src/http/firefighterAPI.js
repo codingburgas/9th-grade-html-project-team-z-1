@@ -13,16 +13,16 @@ export const getOneFirefighter = async (id) => {
 }
 
 export const addFirefighter = async (firefighter) => {
-    const {data} = await $host.get('/api/firefighter', firefighter)
+    const {data} = await $authHost.post('/api/firefighter', firefighter)
     return data
 }
 
 export const deleteFirefighter = async (id) => {
-    const {data} = await $host.get('/api/firefighter', id)
+    const {data} = await $authHost.delete('/api/firefighter', id)
     return data
 }
 
 export const assignFirefighter = async (id, fireTeamId) => {
-    const {data} = await $host.get(`/api/${id}/assign-to-team`, fireTeamId)
+    const {data} = await $host.patch(`/api/${id}/assign-to-team`, fireTeamId)
     return data
 }
