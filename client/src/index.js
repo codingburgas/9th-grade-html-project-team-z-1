@@ -5,6 +5,7 @@ import UserStore from './store/userStore';
 import ThemeStore from './store/themeStore';
 import AccidentStore from './store/accidentStore';
 import FireEngineStore from './store/fireEngineStore';
+import FireStationStore from './store/fireStationStore';
 
 export const Context = createContext()
 
@@ -15,7 +16,8 @@ root.render(
       user: new UserStore,
       theme: new ThemeStore,
       accident: new AccidentStore,
-      fireEngine: new FireEngineStore
+      fireEngine: new FireEngineStore,
+      fireStation: new FireStationStore
     }}>
       <App />
     </Context.Provider>
