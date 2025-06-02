@@ -1,5 +1,5 @@
 import React from 'react'
-
+import './styles/mainPage.css'
 const MainPage = () => {
   return (
     <div>

@@ -1,11 +1,17 @@
-import {React} from 'react'
+import React from 'react'
 import {observer} from 'mobx-react-lite'
-import style from './styles/navbar.css'
+import './styles/navbar.css'
+import { useTheme } from '../context/ThemeProvider'
 
 const Navbar = observer(() => {
+    const {theme, toggleTheme} = useTheme()
+
     return (
         <nav>
-            WORKING
+            <button className='change-theme'
+                    onClick={toggleTheme}>
+                Change theme (now: {theme})
+                </button>
         </nav>
     )
 })

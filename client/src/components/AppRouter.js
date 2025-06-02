@@ -17,7 +17,7 @@ const AppRouter = observer(() => {
                 <Route key={path} path={path} element={<Component />}/>
             )}
 
-            /* Last route redirects user to main page when any other route didn't work */
+            { /* Last route redirects user to main page when any other route didn't work */ }
             <Route path='*' element={<Navigate to={'/'} replace />} />
         </Routes>
     )
