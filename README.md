@@ -1,6 +1,6 @@
 <h1 align="center"><em>Team Z</em> 🧯</h1>
 <p align = "center">
- <img width="500" src="images/zof_logo.PNG" alt="Logo png">
+ <img width="500" src="images/ZOF_logo.PNG" alt="Logo png">
 </p>
 
 ## 📋 Description
