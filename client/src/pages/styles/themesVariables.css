@@ -19,3 +19,19 @@ body.light .Primary {
 body.dark .Primary {
     background-color: #e25a5a;
 }
+
+body.light .Secondary {
+    background-color: #6c2323;
+}
+
+body.dark .Secondary {
+    background-color: #dc9393;
+}
+
+body.light .accent {
+    background-color: #309797;
+}
+
+body.dark .accent {
+    background-color: #68cfcf;
+}
