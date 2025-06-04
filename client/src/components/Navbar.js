@@ -1,17 +1,43 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import {observer} from 'mobx-react-lite'
 import './styles/navbar.css'
 import { useTheme } from '../context/ThemeProvider'
+import {NavLink} from 'react-router-dom'
+import {Context} from '../index'
+
 
 const Navbar = observer(() => {
     const {theme, toggleTheme} = useTheme()
-
+const {user} = useContext(Context)
     return (
-        <nav className='Primary'>
-            <button className='change-theme'
+        <nav className='Secondary'>
+      
+       <div>   
+  <img src ='assets/ZOF_logoNavbar.png' className = 'logo'/> 
+  </div>  
+    <ul>
+
+   <li className = 'elem'><NavLink href="#">Home</NavLink></li>
+   <li className = 'elem'><NavLink href="#">Charts</NavLink></li>
+   <li className = 'elem'><NavLink href="#">Report a fire</NavLink></li>
+   <li className = 'elem'><NavLink href="#">Firefighters' team</NavLink></li>
+   <li className = 'elem'><NavLink href="#">About</NavLink></li>
+   <li className = 'elem'><NavLink className='change-theme'
                     onClick={toggleTheme}>
-                Change theme (now: {theme})
-                </button>
+                Theme ({theme})</NavLink></li>
+                
+</ul>
+            <div>
+            {   
+                user.isAuth ? 
+               <NavLink href="#">Admin</NavLink>: 
+
+             <NavLink className = 'logInIcon'><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
+            }
+            </div>
+
+
+   
         </nav>
     )
 })
