@@ -1,10 +1,10 @@
 import React from 'react'
+import { Login } from '../components/modals/login';
+
 
 const loginPage = () => {
   return (
-    <div>
-        Login page
-    </div>
+    <Login/>
   );
 }
 

@@ -1,48 +1,41 @@
 body {
   margin-top:0;
   padding:0;
-  display: flex;
-  justify-content:center;
-  align-items:center;
   height:10vh;
   background:#f6f6f6;
   width: 100vw;
-    overflow: hidden;
+  overflow: hidden;
 }
+
 nav{
-   margin:0;
+  margin:0;
   padding: 10px;
   display:flex;
- width: 100vw; 
- max-height: 6.7vw;
- justify-content:space-between;
- align-items: center;
- margin-top: 60px;
- 
- 
-
-    
+  width: 100vw; 
+  max-height: 6.7vw;
+  justify-content:space-between;
+  align-items: center;
 }
+
 ul{
   margin:0;
   padding: 0px;;
   display:flex;
   padding-left: 30px;
-   overflow: hidden;
- max-width: 80vw;
- align-items: center;
+  overflow: hidden;
+  max-width: 80vw;
+  align-items: center;
 }
 
 ul li{
   list-style:none;
   margin: 30px;
   transition:0.5s;
- 
 }
 
 ul li a, .adminButton{
   display: block;
- text-align: center;
+  text-align: center;
   text-decoration:none;
 
   font-size:19px;
@@ -57,14 +50,13 @@ ul:hover li a {
   transform:scale(1.5);
   opacity:0.2;
   filter:blur(5px);
-  
 }
 
 .adminButton {
   & ul:hover li a {
     transform:scale(1.5);
     opacity:0.2;
-  filter:blur(5px);
+    filter:blur(5px);
   }
 }
 
@@ -95,22 +87,23 @@ ul li a:hover, .adminButton:hover{
   transform-origin:left;
   transform:scaleX(1);
 }
+
 .logo{
-    
-    width : 14vw ;
-    height:20vh;
-    margin: 0;
+  width : 14vw ;
+  height: 20vh;
+  margin: 0;
 }
+
 .logIn 
 {
-     width : 4.7vw ;
-    height: 4.7vw;
-    margin: 0;
+  width : 4.7vw ;
+  height: 4.7vw;
+  margin: 0;
 }
+
 .logInIcon
-{
-      
-    padding: 0;
+{    
+  padding: 0;
 }
 
 .adminButton {

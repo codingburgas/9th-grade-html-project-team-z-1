@@ -30,7 +30,7 @@ const {user} = useContext(Context)
 </ul>
             <div>
             {   
-                true ? 
+                user.isAuth ? 
                <NavLink className = 'adminButton' to={ADMIN_ROUTE}>Admin</NavLink>: 
 
              <NavLink className = 'logInIcon' to={LOGIN_PAGE}><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
