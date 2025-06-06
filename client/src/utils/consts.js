@@ -1,2 +1,8 @@
 export const MAIN_PAGE_ROUTE = '/'
 export const ADMIN_ROUTE = '/admin'
+export const LOGIN_PAGE = '/login'
+export const CHARTS = '/charts'
+export const REPORT_A_FIRE = '/report-a-fire'
+export const INFO = '/info'
+export const ABOUT = '/about'
+export const MAP = '/map'

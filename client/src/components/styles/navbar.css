@@ -112,3 +112,7 @@ ul li a:hover, .adminButton:hover{
       
     padding: 0;
 }
+
+.adminButton {
+  margin-right: 30px;
+}

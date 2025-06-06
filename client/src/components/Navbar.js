@@ -4,6 +4,7 @@ import './styles/navbar.css'
 import { useTheme } from '../context/ThemeProvider'
 import {NavLink} from 'react-router-dom'
 import {Context} from '../index'
+import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE } from '../utils/consts'
 
 
 const Navbar = observer(() => {
@@ -17,11 +18,11 @@ const {user} = useContext(Context)
   </div>  
     <ul>
 
-   <li className = 'elem'><NavLink href="#">Home</NavLink></li>
-   <li className = 'elem'><NavLink href="#">Charts</NavLink></li>
-   <li className = 'elem'><NavLink href="#">Report a fire</NavLink></li>
-   <li className = 'elem'><NavLink href="#">Team</NavLink></li>
-   <li className = 'elem'><NavLink href="#">About</NavLink></li>
+   <li className = 'elem'><NavLink to={MAIN_PAGE_ROUTE}>Home</NavLink></li>
+   <li className = 'elem'><NavLink to={CHARTS}>Charts</NavLink></li>
+   <li className = 'elem'><NavLink to={REPORT_A_FIRE}>Report a fire</NavLink></li>
+   <li className = 'elem'><NavLink to={INFO}>Info</NavLink></li>
+   <li className = 'elem'><NavLink to={ABOUT}>About</NavLink></li>
    <li className = 'elem'><NavLink className='change-theme'
                     onClick={toggleTheme}>
                 Theme ({theme})</NavLink></li>
@@ -30,9 +31,9 @@ const {user} = useContext(Context)
             <div>
             {   
                 true ? 
-               <NavLink className = 'adminButton' href="#">Admin</NavLink>: 
+               <NavLink className = 'adminButton' to={ADMIN_ROUTE}>Admin</NavLink>: 
 
-             <NavLink className = 'logInIcon'><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
+             <NavLink className = 'logInIcon' to={LOGIN_PAGE}><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
             }
             </div>
 
