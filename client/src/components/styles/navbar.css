@@ -27,7 +27,7 @@ ul{
   margin:0;
   padding: 0px;;
   display:flex;
-
+  padding-left: 30px;
    overflow: hidden;
  max-width: 80vw;
  align-items: center;
@@ -40,9 +40,9 @@ ul li{
  
 }
 
-ul li a{
+ul li a, .adminButton{
   display: block;
- 
+ text-align: center;
   text-decoration:none;
 
   font-size:19px;
@@ -50,16 +50,25 @@ ul li a{
   color:#fff;
   text-transform:uppercase;
   transition:0.5s;
-width: 7vw;
+  width: 7vw;
 }
 
-ul:hover li a{
+ul:hover li a {
   transform:scale(1.5);
   opacity:0.2;
   filter:blur(5px);
+  
 }
 
-ul li a:hover{
+.adminButton {
+  & ul:hover li a {
+    transform:scale(1.5);
+    opacity:0.2;
+  filter:blur(5px);
+  }
+}
+
+ul li a:hover, .adminButton:hover{
   transform:scale(2);
   opacity:1;
   filter:blur(0);
@@ -67,7 +76,7 @@ ul li a:hover{
   color:#ffffff;
 }
 
-.elem a:before{
+.elem a:before, .adminButton:before{
   content:'';
   position:absolute;
   top:0;
@@ -81,7 +90,7 @@ ul li a:hover{
   z-index:-1;
 }
 
-.elem a:hover:before{
+.elem a:hover:before, .adminButton:hover:before{
   transition:transform 0.5s;
   transform-origin:left;
   transform:scaleX(1);

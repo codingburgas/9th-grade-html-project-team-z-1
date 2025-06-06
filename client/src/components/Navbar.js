@@ -20,7 +20,7 @@ const {user} = useContext(Context)
    <li className = 'elem'><NavLink href="#">Home</NavLink></li>
    <li className = 'elem'><NavLink href="#">Charts</NavLink></li>
    <li className = 'elem'><NavLink href="#">Report a fire</NavLink></li>
-   <li className = 'elem'><NavLink href="#">Firefighters' team</NavLink></li>
+   <li className = 'elem'><NavLink href="#">Team</NavLink></li>
    <li className = 'elem'><NavLink href="#">About</NavLink></li>
    <li className = 'elem'><NavLink className='change-theme'
                     onClick={toggleTheme}>
@@ -29,8 +29,8 @@ const {user} = useContext(Context)
 </ul>
             <div>
             {   
-                user.isAuth ? 
-               <NavLink href="#">Admin</NavLink>: 
+                true ? 
+               <NavLink className = 'adminButton' href="#">Admin</NavLink>: 
 
              <NavLink className = 'logInIcon'><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
             }
