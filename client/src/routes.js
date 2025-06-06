@@ -5,7 +5,10 @@ import loginPage from "./pages/loginPage"
 import MainPage from "./pages/MainPage"
 import reportPage from "./pages/reportPage"
 import chartsPage from "./pages/chartsPage"
-import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE } from "./utils/consts"
+import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION } from "./utils/consts"
+import { registration } from "./http/userAPI"
+import RegistrationPage from "./pages/registrationPage"
+import registrationPage from "./pages/registrationPage"
 
 // Routes that will be accessible by everyone
 export const publicRoutes = [
@@ -32,6 +35,10 @@ export const publicRoutes = [
     {
         path: REPORT_A_FIRE,
         Component: reportPage
+    },
+    {
+        path: REGISTRATION,
+        Component: registrationPage
     },
 ]
 
