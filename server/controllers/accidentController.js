@@ -5,9 +5,27 @@ const { Op, where } = require('sequelize')
 class accidentController {
     async create(req, res, next) {
         try {
-            const {name, address, latitude, longtitude, description, date, time, typeId} = req.body
+            const {name, 
+                address, 
+                latitude, 
+                longtitude, 
+                description, 
+                startDate, 
+                endDate, 
+                startTime, 
+                endTime, 
+                typeId} = req.body
 
-            const accident = await Accident.create({name, address, latitude, longtitude, description, date, time, typeId})
+            const accident = await Accident.create({name, 
+                address,
+                latitude, 
+                longtitude,
+                description, 
+                startDate, 
+                endDate, 
+                startTime, 
+                endTime, 
+                typeId})
             return res.json(accident)
         } catch (err) {
             next(Apierror.badRequest(err.message))

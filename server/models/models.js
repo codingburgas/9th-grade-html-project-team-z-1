@@ -17,8 +17,10 @@ const Accident = sequelize.define('accident', {
     latitude: {type: DataTypes.DECIMAL, allowNull: false},
     longtitude: {type: DataTypes.DECIMAL, allowNull: false},
     description: {type: DataTypes.STRING},
-    date: {type: DataTypes.DATE, allowNull: false},
-    time: {type: DataTypes.TIME, allowNull: false},
+    startDate: {type: DataTypes.DATE, allowNull: false},
+    endDate: {type: DataTypes.DATE, allowNull: false},
+    startTime: {type: DataTypes.TIME, allowNull: false},
+    endTime: {type: DataTypes.TIME, allowNull: false},
     state: {type: DataTypes.STRING, defaultValue: 'In Progress'}
 })
 
