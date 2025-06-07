@@ -3,10 +3,11 @@ import React, { useContext, useState } from "react";
 import { Context } from "../..";
 import style from "../styles/register.css"
 import {registration} from "../../http/userAPI"
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { LOGIN_PAGE } from "../../utils/consts";
 
 export const Registration = observer(()=> {
+    const navigate = useNavigate()
     const {user} = useContext(Context)
     const [fName, setFName]=useState("")
     const [lName, setLName]=useState("")
@@ -19,10 +20,12 @@ export const Registration = observer(()=> {
             data = await registration(fName, lName, email, password)
             user.setUser(user)
             user.setIsAuth(true)
+            navigate("/")
         }
         catch(e) {
             alert(e.response.data.message)
         }
+        
     }
 
     return (

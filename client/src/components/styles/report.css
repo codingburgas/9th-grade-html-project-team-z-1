@@ -1,0 +1,20 @@
+.reportForm {
+    width: 40vw;
+    margin: 20vh auto;
+}
+
+.reportForm form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px 50px 0px;
+}
+
+.container {
+    background-color: white;
+    color: #e25a5a;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+}

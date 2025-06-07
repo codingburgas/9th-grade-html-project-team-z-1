@@ -3,10 +3,11 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../index";
 import style from "../styles/login.css"
 import {login} from "../../http/userAPI"
-import { NavLink } from "react-router-dom";
+import { data, NavLink, useNavigate } from "react-router-dom";
 import { REGISTRATION } from "../../utils/consts";
 
 export const Login = observer(()=> {
+    const navigate = useNavigate()
     const {user} = useContext(Context)
     const [email, setEmail]=useState("")
     const [password, setPassword]=useState("")
@@ -14,11 +15,12 @@ export const Login = observer(()=> {
         try{
             let data
             data = await login(email, password)
-            user.setUser(user)
+            user.setUser(data)
             user.setIsAuth(true)
+            navigate("/")
         }
         catch(e) {
-            alert(e.response.data.message)
+            alert(e.message)
         }
     }
 
@@ -26,7 +28,7 @@ export const Login = observer(()=> {
         <div className="loginForm">
             <div className="Primary">
                 <h2>Log in</h2>
-            <form>
+            <form onSubmit={(e) => e.preventDefault()}>
                 <input type="text"
                 placeholder="Enter email" 
                 value={email}

@@ -3,6 +3,10 @@
     font-family:sans-serif;
 }
 
+.dark-text {
+    color: #e25a5a;
+}
+
 body, .Primary {
     transition: .2s;
 }

@@ -1,10 +1,9 @@
 import React from 'react'
+import { Report } from '../components/modals/report';
 
 const reportPage = () => {
   return (
-    <div>
-        Report page
-    </div>
+    <Report/>
   );
 }
 
