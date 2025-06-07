@@ -6,6 +6,7 @@ import AccidentStore from './store/accidentStore';
 import FireEngineStore from './store/fireEngineStore';
 import FireStationStore from './store/fireStationStore';
 import { ThemeProvider } from './context/ThemeProvider';
+import "./map.css"
 
 export const Context = createContext()
 

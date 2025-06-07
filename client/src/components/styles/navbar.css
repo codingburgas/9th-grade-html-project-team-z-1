@@ -4,7 +4,7 @@ body {
   height:10vh;
   background:#f6f6f6;
   width: 100vw;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 nav{

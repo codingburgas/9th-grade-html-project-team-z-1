@@ -3,6 +3,7 @@ import AppRouter from './components/AppRouter';
 import Navbar from './components/Navbar'
 import { observer } from 'mobx-react-lite';
 
+
 const App = observer(() => {
   return (
     <BrowserRouter>
