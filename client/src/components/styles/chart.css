@@ -1,12 +1,8 @@
 .chart{
-    width: 50vw;
-    height:50vh;
+    width: 100vw;
+    height:100vh;
     margin: auto;
-
-}
-.pie{
-    width: 50vw;
-    height:50vh;
-    margin: auto;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
