@@ -1,10 +1,9 @@
 import React from 'react'
+import { Chart } from '../components/chart';
 
 const chartsPage = () => {
   return (
-    <div>
-        Charts Page
-    </div>
+   <Chart/>
   );
 }
 
