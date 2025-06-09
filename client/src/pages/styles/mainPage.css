@@ -4,3 +4,14 @@ body {
     margin: 0;
     overflow: scroll;
 }
+.main_logo{
+    width: 50vw;
+    margin:auto;
+    display: flex;
+    justify-self: center;
+}
+.container
+{
+    margin:auto;
+    width: 70vw;
+}
