@@ -1,0 +1,14 @@
+.fire-station-map {
+    width: 50vw;
+    height: 50vh;
+}
+
+.fire-station-mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.fire-station-tileLayer {
+    width: inherit;
+    height: inherit;
+}

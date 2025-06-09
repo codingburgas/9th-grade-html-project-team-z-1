@@ -1,9 +1,12 @@
 import React from 'react'
+import { AdminButtons } from '../components/adminButtons';
 
 const AdminPage = () => {
+
   return (
     <div>
-        Admin page
+      <AdminButtons />
+      
     </div>
   );
 }
