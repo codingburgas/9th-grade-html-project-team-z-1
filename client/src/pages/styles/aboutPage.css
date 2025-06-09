@@ -1,0 +1,138 @@
+@import url(./themesVariables.css);
+
+body {
+    margin: 0;
+    overflow: scroll;
+}
+.aboutUs{
+    width: 50vw;
+    margin:auto;
+    justify-content: center;
+
+}
+.icon
+{
+    width:30%;
+    height:30%;
+    margin:5%;
+    float: left;
+
+}
+.photo {
+  background-image: url("../../../public/assets/david.jpg");
+  width: 350px;
+  height: 475px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+  border-radius: 10px;
+}
+.info {
+  z-index: 3;
+  margin: 10px;
+  opacity: 0;
+  position: relative;
+}
+.info-cont {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.role {
+  margin: 0.3em auto 1.5em auto;
+  transition: ease-out 0.6s;
+  position: relative;
+  text-align: center;
+  z-index: 3;
+  opacity: 0;
+  color: white;
+}
+.plhn {
+  text-align: center;
+  /* margin-bottom: 10px; */
+  transition: 0.3s linear;
+  background-color: rgba(245, 245, 245, 0.5);
+  border-radius: 10px;
+}.card:hover > .photo > .info-cont > .plhn {
+  opacity: 0;
+}
+.card:hover > .photo > .info-cont > .name::after {
+  opacity: 1;
+}.card:hover > .photo > .info-cont > .name {
+  bottom: 0;
+  color: white;
+  opacity: 1;
+}.name::after {
+  content: "";
+  background-color: #229f94;
+  width: 80%;
+  height: 5px;
+  position: absolute;
+  display: block;
+  z-index: 3;
+  opacity: 0;
+  transition: ease-out 0.5s;
+}
+.card {
+  transition: linear 0.4s;
+  float: left;
+  margin: 17px;
+}
+.card:hover > .photo::after {
+  opacity: 1;
+}
+
+.card:hover > .photo > .info-cont > .info {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.card:hover > .photo > .info-cont > .role {
+  opacity: 1;
+}.photo::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(#ffffff00, #000000);
+  z-index: 2;
+  transition: ease-out 0.3s;
+  opacity: 0;
+  border-radius: 10px;
+}
+.text {
+  color: white;
+  user-select: none;
+  text-align: justify;
+}
+.name {
+  margin-top: 1em;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  z-index: 3;
+  bottom: -200px;
+  color: black;
+  transition: ease-out 0.4s;
+  user-select: none;
+  opacity: 0;
+}
+.photo4 {
+  background-image: url("../../../public/assets/ivelin.jpg");
+}
+.photo3 {
+  background-image: url("../../../public/assets/ekaterina.jpg");
+}
+.photo2 {
+  background-image: url("../../../public/assets/ivayla.jpg");
+}
