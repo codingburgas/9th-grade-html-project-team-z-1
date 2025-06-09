@@ -1,10 +1,9 @@
 import React from 'react'
+import { Info } from '../components/info';
 
 const infoPage = () => {
   return (
-    <div>
-        Info page
-    </div>
+    <Info />
   );
 }
 

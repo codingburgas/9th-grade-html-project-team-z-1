@@ -28,19 +28,19 @@ class fireStationController {
             else fireStations = await FireStation.findAndCountAll()
             return res.json(fireStations)
         } catch (err) {
-            next(Apierror.badRequest(err.message))
+            next(ApiError.badRequest(err.message))
         }
     }
     
     async getOne(req, res, next) {
         try {
             const {id} = req.params
-            const fireStation = await Accident.findOne({
+            const fireStation = await FireStation.findOne({
                 where: {id}
             })
             return res.json(fireStation)
         } catch (err) {
-            next(Apierror.badRequest(err.message))
+            next(ApiError.badRequest(err.message))
         }
     }
 

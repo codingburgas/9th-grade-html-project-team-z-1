@@ -1,0 +1,51 @@
+.aside {
+    height: 100vh;
+    width: 30vw;
+    float: left;
+    margin: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    position: absolute;
+}
+
+.aside ul {
+    margin: 0;
+    width: 100%;
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.aside li {
+    width: 100%;
+}
+.aside button {
+    width: 100%;
+    height: 40px;
+    background-color: transparent;
+    border: solid rgb(48, 85, 85);
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.main {
+    margin: 50px 0;
+    width: 65vw;
+    height: 100vh;
+    float: right;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    color: white;
+}
+
+.main h1 {
+    display: flex;
+    justify-self: center;
+}
+
+.elements {
+    display: flex;
+    flex-direction: column;
+    
+}

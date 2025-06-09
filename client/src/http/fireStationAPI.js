@@ -8,7 +8,7 @@ export const getFireStations = async (limit = 5, page) => {
 }
 
 export const getOneFireStation = async (id) => {
-    const {data} = await $host.get(`/api/firestation${id}`)
+    const {data} = await $host.get(`/api/firestation/${id.id}`)
     return data
 }
 

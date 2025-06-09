@@ -36,7 +36,7 @@ export const AdminButtons = observer(() => {
             className="Secondary"
             onClick={() => setFireEngineVisible(true)}
             >  
-                Add a firefighter
+                Add a fire engine
             </button>
             <button 
             id="add-fireType" 

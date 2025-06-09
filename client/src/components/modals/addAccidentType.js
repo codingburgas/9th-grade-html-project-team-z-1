@@ -22,7 +22,7 @@ export const AddAccidentType = observer(({show, onHide}) => {
             id="modal"
             >
                 <div id="container">
-                    <h1 id="title">Add Fire Engine</h1>
+                    <h1 id="title">Add Accident Type</h1>
                     <div className="inputs">
 
                         <input 

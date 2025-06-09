@@ -26,7 +26,7 @@ export const AddFirefighter = observer(({show, onHide}) => {
             id="modal"
             >
                 <div id="container">
-                    <h1 id="title">Add Fire Station</h1>
+                    <h1 id="title">Add a firefighter</h1>
                     <div className="inputs">
 
                         <input 
