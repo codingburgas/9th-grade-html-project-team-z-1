@@ -63,13 +63,12 @@ class fireTeamController {
         const {fireStationId} = req.body
 
         try {
-            const team = await FireTeam.update({
-                fireStationId: fireStationId,
-                where: fireTeamId
-            })
+            const team = await FireTeam.update(
+                {fireStationId},
+                {where: {id: fireTeamId}}
+            )
             console.log(team)
             team.fireStationId = fireStationId
-            await team.save()
         } catch (err) {
             next(ApiError.badRequest(err.message))
         }
