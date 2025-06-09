@@ -17,11 +17,15 @@ class fireStationController {
     async getAll(req, res, next) {
         try {
             let {limit, page} = req.query
-
-            limit = limit || 5
-            page = page || 1
-            let offset = page * limit - limit
-            const fireStations = await FireStation.findAndCountAll({limit, offset})
+            let offset
+            let fireStations
+            if (limit && page) {
+                limit = limit || 5
+                page = page || 1
+                offset = page * limit - limit
+                fireStations = await FireStation.findAndCountAll({limit, offset})
+            }
+            else fireStations = await FireStation.findAndCountAll()
             return res.json(fireStations)
         } catch (err) {
             next(Apierror.badRequest(err.message))

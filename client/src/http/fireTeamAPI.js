@@ -22,7 +22,8 @@ export const deleteTeam = async (id) => {
     return data
 }
 
-export const assignTeamToStation = async (id, fireStationId) => {
-    const {data} = await $authHost.patch(`/api/fireteam${id}`, fireStationId)
+export const assignTeamToStation = async (props) => {
+    const {id, fireStationId} = props
+    const {data} = await $authHost.patch(`/api/fireteam/${id}/assign-to-station`, {fireStationId})
     return data
 }

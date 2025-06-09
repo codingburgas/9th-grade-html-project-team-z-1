@@ -1,3 +1,4 @@
+const { where } = require('sequelize')
 const ApiError = require('../errors/apiError')
 const {FireTeam, Firefighter} = require('../models/models')
 
@@ -62,14 +63,13 @@ class fireTeamController {
         const {fireStationId} = req.body
 
         try {
-            const team = await FireTeam.findByPk(fireTeamId, {
-                include: Firefighter
+            const team = await FireTeam.update({
+                fireStationId: fireStationId,
+                where: fireTeamId
             })
-            
+            console.log(team)
             team.fireStationId = fireStationId
             await team.save()
-
-            return res.json(team)
         } catch (err) {
             next(ApiError.badRequest(err.message))
         }
