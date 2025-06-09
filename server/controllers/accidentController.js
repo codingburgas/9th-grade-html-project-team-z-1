@@ -36,9 +36,11 @@ class accidentController {
         try {
             let {startDate, endDate, type, limit, page, countOnly} = req.query
             
-            limit = limit || 5
-            page = page || 1
-            let offset = page * limit - limit
+            limit = limit
+            page = page
+            let offset
+            if (page && limit)
+                offset = page * limit - limit
 
             let whereClause = {}
             if (startDate && endDate) {
@@ -50,8 +52,13 @@ class accidentController {
             if (type) {
                 whereClause.typeId = type
             }
-            
-            const accidents = await Accident.findAndCountAll({where: whereClause, limit, offset})
+            let accidents = []
+            if (!page && !limit){
+                accidents = await Accident.findAndCountAll({where: whereClause})
+            }
+            else {
+                accidents = await Accident.findAndCountAll({where: whereClause, limit, offset})
+            }
             if (countOnly)
                 return res.json(accidents.count)
             return res.json(accidents)
