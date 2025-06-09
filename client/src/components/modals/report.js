@@ -44,7 +44,7 @@ export const Report = observer(()=> {
 
     useEffect(() => {
         fetchTypes().then(data => accident.setTypes(data))
-        
+        accident.setSelectedType(1)
     }, [])
 
     const click = latlng => {

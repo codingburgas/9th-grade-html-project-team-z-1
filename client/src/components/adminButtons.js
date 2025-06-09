@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { AddFireStation } from "./modals/addFireStation";
 import { AddFirefighter } from "./modals/addFirefighter";
 import { AddFireEngine } from "./modals/addFireEngine";
+import { AddAccidentType } from "./modals/addAccidentType";
 
 export const AdminButtons = observer(() => {
   const [fireStationVisible, setFireStationVisible] = useState(false)
   const [firefighterVisible, setFirefighterVisible] = useState(false)
-  const [FireEngineVisible, setFireEngineVisible] = useState(false)
+  const [fireEngineVisible, setFireEngineVisible] = useState(false)
+  const [fireTypeVisible, setFireTypeVisible] = useState(false)
 
     return (
         <div>
@@ -32,9 +34,17 @@ export const AdminButtons = observer(() => {
             >  
                 Add a firefighter
             </button>
+            <button 
+            id="add-fireType" 
+            className="Secondary"
+            onClick={() => setFireTypeVisible(true)}
+            >  
+                Add an accident type
+            </button>
       <AddFireStation show={fireStationVisible} onHide={() => setFireStationVisible(false)}/>
       <AddFirefighter show={firefighterVisible} onHide={() => setFirefighterVisible(false)}/>
-      <AddFireEngine show={FireEngineVisible} onHide={() => setFireEngineVisible(false)}/>
+      <AddFireEngine show={fireEngineVisible} onHide={() => setFireEngineVisible(false)}/>
+      <AddAccidentType show={fireTypeVisible} onHide={() => setFireTypeVisible(false)}/>
         </div>
     )
 })
