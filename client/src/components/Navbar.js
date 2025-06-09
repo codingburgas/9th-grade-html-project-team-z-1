@@ -4,7 +4,7 @@ import './styles/navbar.css'
 import { useTheme } from '../context/ThemeProvider'
 import {NavLink} from 'react-router-dom'
 import {Context} from '../index'
-import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE } from '../utils/consts'
+import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, MAP, REPORT_A_FIRE } from '../utils/consts'
 
 
 const Navbar = observer(() => {
@@ -20,6 +20,7 @@ const {user} = useContext(Context)
 
    <li className = 'elem'><NavLink to={MAIN_PAGE_ROUTE}>Home</NavLink></li>
    <li className = 'elem'><NavLink to={CHARTS}>Charts</NavLink></li>
+   <li className = 'elem'><NavLink to={MAP}>Map</NavLink></li>
    <li className = 'elem'><NavLink to={REPORT_A_FIRE}>Report a fire</NavLink></li>
    <li className = 'elem'><NavLink to={INFO}>Info</NavLink></li>
    <li className = 'elem'><NavLink to={ABOUT}>About</NavLink></li>
