@@ -8,39 +8,51 @@ import {
     Tooltip,
     Legend,
     Title
-}from "chart.js";
+} from "chart.js";
 import {Pie} from "react-chartjs-2";
-import { Context } from "../index";
+
 ChartJS.register(ArcElement, Tooltip, Legend, Title);
+
 export const Chart = observer(( ) => 
     {
-        const {accident} = useContext(Context)
-        const[data, setData] = useState()
-          useEffect(() =>{
-            let types= [];
-            fetchTypes().then(res => res.json()).then(data=> {
-                const labels = data.map(item => console.log(item.name))
-                setData( {
-               labels, 
-               datasets: [{
-                   label: "Accidents number", 
-                   data:[15, 20, 30],
-                   backgroundColor: [ 
-                       "#ffbb00",
-                       "#0877ff",
-                       "#ff051e"
-                    ],
-                    borderColor: "#000000",
-                    borderWidth: 2
-                }]
-                
-            }) 
-            } )
-           console.log(data)
+        const[chartData, setChartData] = useState(null)
 
-          
-            
-        }, [])
+        useEffect(() => {
+
+        fetchTypes().then(types => {
+            const promises = types.map(type =>
+                fetchAccidents({ type: type.id, countOnly: 1 }).then(res => ({
+                    label: type.name,
+                    count: res
+                }))
+            );
+
+      Promise.all(promises).then(results => {
+        const labels = results.map(item => item.label);
+        const data = results.map(item => item.count);
+
+        setChartData({
+          labels,
+          datasets: [
+            {
+              label: "Accidents quantity",
+              data,
+              backgroundColor: [
+                "#ffbb00",
+                "#0877ff",
+                "#ff051e",
+                "#36A2EB",
+                "#9966FF",
+                "#4BC0C0"
+              ],
+              borderColor: "#000000",
+              borderWidth: 2
+            }
+          ]
+        });
+      });
+    });
+  }, []);
         const options = {
             responsive: false,
             plugins: {
@@ -56,10 +68,11 @@ export const Chart = observer(( ) =>
                 }
             }
         }
-       
+        if (!chartData) {return <p>Getting diagram data....</p>;}
+
         return (
    <div className="chart">
-      <Pie  data = {data} options = {options}  width={700} height={700} />
+      <Pie  data = {chartData} options = {options}  width={700} height={700} />
     </div>
     )
 })

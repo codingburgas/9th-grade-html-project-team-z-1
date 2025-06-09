@@ -34,7 +34,7 @@ class accidentController {
     
     async getAll(req, res, next) {
         try {
-            let {startDate, endDate, type, limit, page} = req.query
+            let {startDate, endDate, type, limit, page, countOnly} = req.query
             
             limit = limit || 5
             page = page || 1
@@ -52,6 +52,8 @@ class accidentController {
             }
             
             const accidents = await Accident.findAndCountAll({where: whereClause, limit, offset})
+            if (countOnly)
+                return res.json(accidents.count)
             return res.json(accidents)
         } catch (err) {
             next(Apierror.badRequest(err.message))

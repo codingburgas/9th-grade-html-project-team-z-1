@@ -15,29 +15,27 @@ export const deleteType = async (type) => {
     return data
 }
 
-export const fetchAccidents = async (startDate, endDate, typeId, limit = 5, page) => {
-    const {data} = $host.get('/api/accident', {params: {
-        startDate, endDate, typeId, limit, page
-    }})
+export const fetchAccidents = async (props) => {
+    const {data} = await $host.get('/api/accident', {params: props})
     return data
 }
 
 export const fetchOneAccident = async (id) => {
-    const {data} = $host.get(`/api/accident/${id}`)
+    const {data} = await $host.get(`/api/accident/${id}`)
     return data
 }
 
 export const createAccident = async (accident) => {
-    const {data} = $host.post('/api/accident', accident)
+    const {data} = await $host.post('/api/accident', accident)
     return data
 }
 
 export const deleteAccident = async (id) => {
-    const {data} = $authHost.delete('/api/accident', id)
+    const {data} = await $authHost.delete('/api/accident', id)
     return data
 }
 
 export const changeAccidentState = async (id, state) => {
-    const {data} = $authHost.patch(`/api/accident${id}`, state)
+    const {data} = await $authHost.patch(`/api/accident${id}`, state)
     return data
 }

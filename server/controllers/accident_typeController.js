@@ -6,6 +6,7 @@ class AccidentController {
         try {
             const {name} = req.body
             const accidentType = await AccidentType.create({name: name})
+
             return res.json(accidentType)
         } catch (err) {
             next(ApiError.badRequest(err.message))
