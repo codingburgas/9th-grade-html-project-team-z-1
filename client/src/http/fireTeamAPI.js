@@ -1,6 +1,6 @@
 import { $host, $authHost } from './index';
 
-export const getFireStations = async (limit = 5, page) => {
+export const getTeams = async (limit = 5, page) => {
     const {data} = await $host.get('/api/fireTeam', {config: {
         limit, page
     }})
