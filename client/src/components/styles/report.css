@@ -1,17 +1,24 @@
 .reportForm {
     width: 40vw;
-    margin: 20vh auto;
+    margin: 10vh auto;
+    color: #e25a5a;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100px;
 }
 
 .reportForm form {
     display: flex;
+    background-color: white;
     flex-direction: column;
-    margin: 10px 0px 50px 0px;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+    padding: 50px;
+    margin-bottom: 50px;
 }
 
 .container {
-    background-color: white;
-    color: #e25a5a;
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -19,11 +26,22 @@
 }
 
 .map {
-    height: 300px;
-    width: 450px;
+    margin: 10px;
+    height: 35vh;
+    width: 40vw;
+}
+.mapContainer {
+    border:dotted black;
+    width: 100%;
+    height: 100%;
+    transition: .2s;
 }
 
-.mapContainer {
-    height: 100%;
-    width: 100%;
+.tileLayer {
+    width: inherit;
+    height: inherit;
+}
+
+.submitButton {
+    margin: 30px;
 }

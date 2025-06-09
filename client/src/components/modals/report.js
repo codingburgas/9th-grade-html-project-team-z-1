@@ -1,11 +1,12 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../index";
-import style from "../styles/report.css"
-import { data, NavLink } from "react-router-dom";
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents} from "react-leaflet"
+import "../styles/report.css"
+import { MapContainer, TileLayer, Marker, useMapEvents} from "react-leaflet"
 import "leaflet/dist/leaflet.css"
 import L from "leaflet"
+import { createAccident, fetchTypes } from "../../http/accidentAPI";
+
 delete L.Icon.Default.prototype._getIconUrl
 
 L.Icon.Default.mergeOptions({
@@ -14,19 +15,18 @@ L.Icon.Default.mergeOptions({
     shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
 });
 
-const getAddress = async(lat, lng) => {
+const getAddress = async(lat, lon) => {
         const response = await fetch(
-            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lng=${lng}`
+            `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
         )
         const data = await response.json()
-        return data.display_name
+        return data.display_name || "Address not found"
 }
 
-const ClickHandler = () => {
+const ClickHandler = ({onMapClick}) => {
     useMapEvents({
         click(e) {
-            const {lat, lng} = e.latlng
-            alert(lat, lng)
+            onMapClick(e.latlng)
         }
     })
     return null
@@ -36,48 +36,112 @@ export const Report = observer(()=> {
     const {accident} = useContext(Context)
     const [name, setName]=useState("")
     const [address, setAddress]=useState("")
-    const [lat, setLat]=useState("")
-    const [lng, setLng]=useState("")
+    const [lat, setLat]=useState()
+    const [lng, setLng]=useState()
     const [description, setDescription]=useState("")
-    const [startDate, setStartDate]=useState("")
-    const [endDate, setEndDate]=useState("")
-    const [startTime, setStartTime]=useState("")
-    const [endTime, setEndTime]=useState("")
 
-    const click = async() => {
-        alert("Your accident is submitted succesfully!")
+    const [markerPosition, setPosition] = useState(null)
+
+    useEffect(() => {
+        fetchTypes().then(data => accident.setTypes(data))
+        
+    }, [])
+
+    const click = latlng => {
+        const lat = latlng.lat
+        const lng = latlng.lng
+
+        setLat(lat)
+        setLng(lng)
+        getAddress(lat, lng).then((e) => {
+            setAddress(e)
+        })
+        setPosition(latlng)
+
+    }
+    
+    const clearInputs = () => {
+        setName('')
+        setDescription('')
+        setPosition(null)
+    }
+
+    const submit = () => {
+        const date = new Date
+        const startDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+        const endDate = startDate
+        const startTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+        const endTime = startTime
+
+        const formData = new FormData()
+        formData.append('name', name)
+        formData.append('address', address)
+        formData.append('latitude', lat)
+        formData.append('longtitude', lng)
+        formData.append('description', description)
+        formData.append('startDate', startDate)
+        formData.append('endDate', endDate)
+        formData.append('startTime', startTime)
+        formData.append('endTime', endTime)
+        formData.append('typeId', accident.selectedType)
+
+        createAccident(formData).then(() => clearInputs())
     }
 
     return (
         <div className="reportForm">
             <div className="container">
-                <h2 className="dark-text">Report a fire</h2>
-                <form>
+                <form onSubmit={e => e.preventDefault()}>
+                    <h2 className="dark-text">Report a fire</h2>
+
                     <input type="text"
                     placeholder="Enter accident's name" 
                     value={name}
                     onChange={e => setName(e.target.value)}></input>
 
                     <input type="text"
-                    placeholder="Enter your address" 
-                    value={address}
-                    onChange={e => setAddress(e.target.value)}></input>
-
-                    <div className="map">
-                        <MapContainer center={[51, 42]} zoom={13} className="mapContainer">
-                            <TileLayer
-                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                            />
-                            <ClickHandler/>
-                        </MapContainer>
-                    </div>
-
-                    <input type="text"
                     placeholder="Enter accident's description" 
                     value={description}
                     onChange={e => setDescription(e.target.value)}></input>
-                    <input type ="submit" onClick={click}></input>
+                    
+                    <label style={{color: "black"}}>
+                        Choose accident type
+                    </label>
+
+                    <select name="type"
+                     style={{width: 100, color: "black"}}
+                     onChange={e => accident.setSelectedType(e.target.value)}
+                     >
+                        {accident.types.map(type => {
+                            return <option 
+                                    key={type.id} 
+                                    value={type.id}
+                                    style={{color: "black"}}
+                                    >
+                                        {type.name}
+                                    </option>
+                        })}
+                    </select>
+
+                    <div className="map" id="min">
+
+                        <MapContainer 
+                        center={[42.45585612547671, 27.401508564127575]} 
+                        zoom={17} 
+                        className="mapContainer"
+                        >
+                            <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                            className="tileLayer"
+                            />
+                            <ClickHandler onMapClick={click}/>
+                            {markerPosition && <Marker position={markerPosition} />}
+                        </MapContainer>
+                    </div>
+
+                    <input className="submitButton" type ="submit" onClick={submit}></input>
+
                 </form>
             </div>
         </div>
