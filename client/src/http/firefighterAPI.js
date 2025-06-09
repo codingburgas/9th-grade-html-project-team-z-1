@@ -13,7 +13,7 @@ export const getOneFirefighter = async (id) => {
 }
 
 export const addFirefighter = async (firefighter) => {
-    const {data} = await $authHost.post('/api/firefighter', firefighter)
+    const {data} = await $authHost.post('/api/firefighter', firefighter, )
     return data
 }
 
