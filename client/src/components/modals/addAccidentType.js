@@ -1,12 +1,10 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import '../styles/modal.css'
 import '../styles/addAccidentType.css'
 import {createType} from  '../../http/accidentAPI'
 export const AddAccidentType = observer(({show, onHide}) => {
     const [name, setName] = useState()
-    const [description, setDescription] = useState()
-    const [imageName, setImageName] = useState()
     
     const create = ()=> {
 

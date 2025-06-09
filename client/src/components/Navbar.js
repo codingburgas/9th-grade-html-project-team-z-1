@@ -14,7 +14,7 @@ const {user} = useContext(Context)
         <nav className='Secondary'>
       
        <div>   
-  <img src ='assets/ZOF_logoNavbar.png' className = 'logo'/> 
+  <img src ='assets/ZOF_logoNavbar.png' className = 'logo' alt='logo'/> 
   </div>  
     <ul>
 
@@ -34,7 +34,7 @@ const {user} = useContext(Context)
                 user.isAuth ? 
                <NavLink className = 'adminButton' to={ADMIN_ROUTE}>Admin</NavLink>: 
 
-             <NavLink className = 'logInIcon' to={LOGIN_PAGE}><img src ='assets/logIn_icon.png' className='logIn'/> </NavLink>
+             <NavLink className = 'logInIcon' to={LOGIN_PAGE}><img src ='assets/logIn_icon.png' alt='login' className='logIn'/> </NavLink>
             }
             </div>
 

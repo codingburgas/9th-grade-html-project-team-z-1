@@ -1,9 +1,9 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useState } from "react";
 import { Context } from "../../index";
-import style from "../styles/login.css"
+import "../styles/login.css"
 import {login} from "../../http/userAPI"
-import { data, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { REGISTRATION } from "../../utils/consts";
 
 export const Login = observer(()=> {

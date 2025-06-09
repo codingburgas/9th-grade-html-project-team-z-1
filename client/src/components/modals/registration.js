@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import React, { useContext, useState } from "react";
 import { Context } from "../..";
-import style from "../styles/register.css"
+import "../styles/register.css"
 import {registration} from "../../http/userAPI"
 import { NavLink, useNavigate } from "react-router-dom";
 import { LOGIN_PAGE } from "../../utils/consts";

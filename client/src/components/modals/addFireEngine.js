@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import '../styles/modal.css'
 import '../styles/addFireEngine.css'
 import {addFireEngine} from '../../http/fireEngineAPI'

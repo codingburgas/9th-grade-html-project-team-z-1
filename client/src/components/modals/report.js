@@ -67,7 +67,7 @@ export const Report = observer(()=> {
     }
 
     const submit = () => {
-        const date = new Date
+        const date = new Date()
         const startDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
         const endDate = startDate
         const startTime = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`

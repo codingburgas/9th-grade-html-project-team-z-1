@@ -6,8 +6,6 @@ import MainPage from "./pages/MainPage"
 import reportPage from "./pages/reportPage"
 import chartsPage from "./pages/chartsPage"
 import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION, MAP } from "./utils/consts"
-import { registration } from "./http/userAPI"
-import RegistrationPage from "./pages/registrationPage"
 import registrationPage from "./pages/registrationPage"
 import MapPage from "./pages/mapPage"
 

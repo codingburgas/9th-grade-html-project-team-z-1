@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import "./styles/chart.css" 
 import {fetchAccidents, fetchTypes} from "../http/accidentAPI";
-import React, { useContext, useEffect, useState } from "react";
+import React, {useEffect, useState } from "react";
 import { 
     Chart as ChartJS, 
     ArcElement, 

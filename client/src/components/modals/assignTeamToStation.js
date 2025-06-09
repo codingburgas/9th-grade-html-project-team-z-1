@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import '../styles/modal.css'
 import '../styles/addFireTeam.css'
 import {assignTeamToStation, getTeams} from  '../../http/fireTeamAPI'
