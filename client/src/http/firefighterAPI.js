@@ -8,7 +8,7 @@ export const getFirefighters = async (limit = 5, page) => {
 }
 
 export const getOneFirefighter = async (id) => {
-    const {data} = await $host.get(`/api/firefighter${id}`)
+    const {data} = await $host.get(`/api/firefighter/${id.id}`)
     return data
 }
 

@@ -5,7 +5,8 @@ import { getFireStations } from "../http/fireStationAPI";
 import { getFirefighters } from "../http/firefighterAPI";
 import { getFireEngines } from "../http/fireEngineAPI";
 import { getTeams } from "../http/fireTeamAPI";
-import { StationCard } from "./stationCardInfo";
+import { StationCard } from "./stationCard";
+import { FirefighterCard } from "./firefighterCard";
 
 export const Info = observer(() => {
 
@@ -46,7 +47,16 @@ export const Info = observer(() => {
             )
         if (category == 'firefighters')
             return (
-                <h1>Firefighters</h1>
+                <div>
+                    <h1>Firefighters</h1>
+                    <div className="elements">
+                        {
+                            firefighters.map(firefighter => {
+                                return <FirefighterCard key={firefighter.id} data={firefighter} />
+                            })
+                        }
+                    </div>
+                </div>
             )
         if (category == 'engines')
             return (

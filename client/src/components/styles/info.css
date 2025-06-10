@@ -37,6 +37,7 @@
     border-top-left-radius: 20px;
     border-bottom-left-radius: 20px;
     color: white;
+    overflow-y: scroll;
 }
 
 .main h1 {
@@ -47,5 +48,4 @@
 .elements {
     display: flex;
     flex-direction: column;
-    
 }

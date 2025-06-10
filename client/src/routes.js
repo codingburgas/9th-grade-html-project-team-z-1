@@ -5,10 +5,11 @@ import loginPage from "./pages/loginPage"
 import MainPage from "./pages/MainPage"
 import reportPage from "./pages/reportPage"
 import chartsPage from "./pages/chartsPage"
-import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION, MAP, STATION_ROUTE } from "./utils/consts"
+import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION, MAP, STATION_ROUTE, FIREFIGHTER_ROUTE } from "./utils/consts"
 import registrationPage from "./pages/registrationPage"
 import MapPage from "./pages/mapPage"
 import StationPage from "./pages/stationPage"
+import FirefighterPage from "./pages/firefighterPage"
 
 // Routes that will be accessible by everyone
 export const publicRoutes = [
@@ -47,6 +48,10 @@ export const publicRoutes = [
     {
         path: STATION_ROUTE + '/:id',
         Component: StationPage
+    },
+    {
+        path: FIREFIGHTER_ROUTE + '/:id',
+        Component: FirefighterPage
     },
 ]
 

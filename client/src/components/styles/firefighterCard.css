@@ -1,0 +1,21 @@
+.firefighter-card {
+    margin: 20px;
+    padding: 50px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.firefighter-card:hover {
+    transform: rotateZ(3deg);
+}
+
+.firefighter-card img {
+    max-height: 300px;
+}
+
+.image {
+    float: left
+}
