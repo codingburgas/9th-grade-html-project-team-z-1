@@ -67,8 +67,7 @@ class fireTeamController {
                 {fireStationId},
                 {where: {id: fireTeamId}}
             )
-            console.log(team)
-            team.fireStationId = fireStationId
+            return res.json(team)
         } catch (err) {
             next(ApiError.badRequest(err.message))
         }

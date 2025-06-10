@@ -6,7 +6,6 @@ import {NavLink} from 'react-router-dom'
 import {Context} from '../index'
 import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, MAP, REPORT_A_FIRE } from '../utils/consts'
 
-
 const Navbar = observer(() => {
     const {theme, toggleTheme} = useTheme()
 const {user} = useContext(Context)

@@ -3,6 +3,7 @@ const {FireEngine} = require('../models/models')
 const uuid = require('uuid')
 const path = require('path')
 const { IncomingMessage } = require('http')
+const { where } = require('sequelize')
 
 class fireEngineController {
     async add(req, res, next) {
@@ -50,8 +51,7 @@ class fireEngineController {
         const {id} = req.body
 
         let deleteCount = FireEngine.destroy({id})
-        if (deleteCount) return res.json({})
-        else return res.json({})
+        if (deleteCount) return res.json({messa })
     }
 
     async assignAccident(req, res, next) {
@@ -68,11 +68,13 @@ class fireEngineController {
     }
     async assignTeam(req, res, next) {
         const fireEngineId = req.params.id
-        const {teamId} = req.body
+        const {fireTeamId} = req.body
 
         try {
-             const fireEngine = FireEngine.findByPk(fireEngineId)
-             fireEngine.fireTeamId = teamId
+             const fireEngine = FireEngine.update(
+                 {fireTeamId: fireTeamId},
+                 {where: {id: fireEngineId}}
+             )
              return res.json(fireEngine)
         } catch (err) {
             next(ApiError.badRequest(err.message))

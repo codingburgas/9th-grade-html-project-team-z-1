@@ -27,7 +27,8 @@ export const assignAccidentToEngine = async (id, accidentId) => {
     return data
 }
 
-export const assignEngineToTeam = async (id, fireTeamId) => {
-    const {data} = await $host.patch(`/api/fireengine/${id.id}/assign-team`,  fireTeamId)
+export const assignEngineToTeam = async (props) => {
+    const {id, fireTeamId} = props
+    const {data} = await $host.patch(`/api/fireengine/${id}/assign-team`,  {fireTeamId})
     return data
 }

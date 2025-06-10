@@ -24,7 +24,11 @@ export const AssignFireEngineToTeam = observer(({show, onHide}) => {
     }, [])
 
     const assign = () => {
-        assignEngineToTeam({id: fireEngineId, fireTeamId})
+        console.log(fireTeamId, fireEngineId)
+        assignEngineToTeam({
+            id: fireEngineId,
+            fireTeamId: fireTeamId
+        })
     }
 
     if (show)
