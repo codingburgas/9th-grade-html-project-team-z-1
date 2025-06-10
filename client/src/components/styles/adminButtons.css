@@ -1,5 +1,5 @@
 .button {
-    min-width: 400px;
+    min-width: 1000px;
     color: white;
     font-size: 20px;
     margin: 20px;
@@ -9,4 +9,13 @@
 }
 .admin-button:hover {
     width: 420px;
+}
+.right
+{
+    float: right;
+
+}
+.center{
+    float:center;
+
 }

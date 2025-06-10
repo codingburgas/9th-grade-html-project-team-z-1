@@ -21,7 +21,8 @@ export const AdminButtons = observer(() => {
   const [assignFireEngineToTeamVisible, setAssignFireEngineToTeamVisible] = useState(false)
 
     return (
-        <div>
+        <div className="adminButtons">
+            <div className="right">
             <button 
             id="add-fire-station" 
             className="Primary admin-button"
@@ -57,6 +58,8 @@ export const AdminButtons = observer(() => {
             >  
                 Add a fire team
             </button>
+            </div>
+            <div className="center">
             <button 
             id="add-fireType" 
             className="Primary admin-button"
@@ -64,6 +67,7 @@ export const AdminButtons = observer(() => {
             >  
                 Assign a fire team to station
             </button>
+
             <button 
             id="add-fireType" 
             className="Primary admin-button"
@@ -78,6 +82,7 @@ export const AdminButtons = observer(() => {
             >  
                 Assign a fire engine to a fire team
             </button>
+            </div>
       <AddFireStation show={fireStationVisible} onHide={() => setFireStationVisible(false)}/>
       <AddFirefighter show={firefighterVisible} onHide={() => setFirefighterVisible(false)}/>
       <AddFireEngine show={fireEngineVisible} onHide={() => setFireEngineVisible(false)}/>
