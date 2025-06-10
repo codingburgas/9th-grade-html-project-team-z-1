@@ -1,0 +1,106 @@
+footer {
+  border: none; 
+  bottom: 0;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: 100px;
+  width: 100%;
+}
+
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background-image: url("../../../public/assets/footer.png");
+  background-size: 1000px 100px;
+}
+
+.wave1 {
+  animation: wave-anim-1 30s linear infinite;
+  z-index: 4;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+}
+
+.wave2 {
+  animation: wave-anim-1 15s linear infinite;
+  z-index: 3;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+
+.wave3 {
+  animation: wave-anim-2 30s linear infinite;
+  z-index: 2;
+  opacity: 0.3;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+
+.wave4 {
+  animation: wave-anim-2 5s linear infinite;
+  z-index: 1;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+
+@keyframes wave-anim-1 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 1000px;
+  }
+}
+
+@keyframes wave-anim-2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -1000px;
+  }
+}
+
+.tm,
+.fb,
+.cb {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  position: relative;
+  z-index: 5;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tm > img,
+.fb > img,
+.cb > img {
+  width: 100%;
+  width: 100%;
+}
+
+.icons {
+  position: absolute;
+  bottom: 10px;
+}
+
+.tm:hover,
+.fb:hover,
+.cb:hover {
+  transform: scale(1.05);
+}
+
+.tm:active,
+.fb:active,
+.cb:active {
+  transform: scale(0.97);
+}
