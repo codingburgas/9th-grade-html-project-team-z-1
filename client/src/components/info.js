@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import { getFireStations } from "../http/fireStationAPI";
 import { getFirefighters } from "../http/firefighterAPI";
 import { getFireEngines } from "../http/fireEngineAPI";
-import { getTeams } from "../http/fireTeamAPI";
 import { StationCard } from "./stationCard";
 import { FirefighterCard } from "./firefighterCard";
 import { FireEngineCard } from "./fireEngineCard";
@@ -15,7 +14,6 @@ export const Info = observer(() => {
     const [stations, setStations] = useState([])
     const [firefighters, setFirefighters] = useState([])
     const [engines, setEngines] = useState([])
-    const [teams, setTeams] = useState([])
 
     useEffect(() => {
         getFireStations().then(data => {
@@ -26,9 +24,6 @@ export const Info = observer(() => {
         })
         getFireEngines().then(data => {
             setEngines(data.rows)
-        })
-        getTeams().then(data => {
-            setTeams(data.rows)
         })
     }, [])
 
@@ -72,10 +67,6 @@ export const Info = observer(() => {
                 </div>
             </div>
             )
-        if (category == 'teams')
-            return (
-                <h1>Teams</h1>
-            )
     })
 
     return (
@@ -96,11 +87,6 @@ export const Info = observer(() => {
                     onClick={() => setCategory('engines')}
                     >
                         Fire engines
-                    </button></li>
-                    <li><button
-                        onClick={() => setCategory('teams')}
-                    >
-                        Fire Teams
                     </button></li>
                 </ul>
             </div>

@@ -12,10 +12,7 @@
     transform: rotateZ(3deg);
 }
 
-.fire-engine-card img {
-    max-height: 300px;
-}
-
-.image {
-    float: left
+.fire-engine-card .name {
+    display: flex;
+    justify-content: center
 }

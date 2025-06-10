@@ -1,6 +1,6 @@
 import { $host, $authHost } from './index';
 
-export const getTeams = async (limit = 5, page) => {
+export const getTeams = async (limit, page) => {
     const {data} = await $host.get('/api/fireTeam', {config: {
         limit, page
     }})
@@ -8,7 +8,7 @@ export const getTeams = async (limit = 5, page) => {
 }
 
 export const getOneTeam = async (id) => {
-    const {data} = await $host.get(`/api/fireteam${id}`)
+    const {data} = await $host.get(`/api/fireteam/${id.id}`)
     return data
 }
 

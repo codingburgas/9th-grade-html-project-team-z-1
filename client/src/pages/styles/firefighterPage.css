@@ -1,0 +1,23 @@
+.content {
+    width: 70vw;
+    height: 70vh;
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.firefighter-map {
+    width: 50vw;
+    height: 50vh;
+}
+
+.firefighter-mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.firefighter-tileLayer {
+    width: inherit;
+    height: inherit;
+}

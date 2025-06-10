@@ -10,7 +10,7 @@ export const FireEngineCard = observer(({data}) => {
     return (
         <div className="Primary fire-engine-card" style={{cursor: 'pointer'}} onClick={() => navigate(FIRE_ENGINE_ROUTE + '/' + data.id)}>
             <div className="image"><img width={'200px'} src={process.env.REACT_APP_API_URL + '/' + data.image}></img></div>
-            <div className="names">Name: {data.name}</div>
+            <div className="name">Name: {data.name}</div>
         </div>
     )
 })

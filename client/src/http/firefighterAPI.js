@@ -22,7 +22,8 @@ export const deleteFirefighter = async (id) => {
     return data
 }
 
-export const assignFirefighter = async (id, fireTeamId) => {
-    const {data} = await $host.patch(`/api/${id}/assign-to-team`, fireTeamId)
+export const assignFirefighter = async (props) => {
+    const {id, fireTeamId} = props
+    const {data} = await $host.patch(`/api/firefighter/${id}/assign-to-team`, {fireTeamId})
     return data
 }

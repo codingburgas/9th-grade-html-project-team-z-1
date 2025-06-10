@@ -6,6 +6,7 @@ import { AddFireEngine } from "./modals/addFireEngine";
 import { AddFireTeam } from "./modals/addFireTeam";
 import { AddAccidentType } from "./modals/addAccidentType";
 import { AssignTeamToStation } from "./modals/assignTeamToStation";
+import { AssignFirefighterToTeam } from "./modals/assignFirefighterToTeam";
 
 export const AdminButtons = observer(() => {
   const [fireStationVisible, setFireStationVisible] = useState(false)
@@ -14,6 +15,7 @@ export const AdminButtons = observer(() => {
   const [fireTypeVisible, setFireTypeVisible] = useState(false)
   const [fireTeamVisible, setFireTeamVisible] = useState(false)
   const [assignFireTeamVisible, setAssignFireTeamVisible] = useState(false)
+  const [assignFirefighterVisible, setAssignFirefighterVisible] = useState(false)
 
     return (
         <div>
@@ -59,12 +61,20 @@ export const AdminButtons = observer(() => {
             >  
                 Assign a fire team to station
             </button>
+            <button 
+            id="add-fireType" 
+            className="Secondary"
+            onClick={() => setAssignFirefighterVisible(true)}
+            >  
+                Assign a firefighter to fire team
+            </button>
       <AddFireStation show={fireStationVisible} onHide={() => setFireStationVisible(false)}/>
       <AddFirefighter show={firefighterVisible} onHide={() => setFirefighterVisible(false)}/>
       <AddFireEngine show={fireEngineVisible} onHide={() => setFireEngineVisible(false)}/>
       <AddAccidentType show={fireTypeVisible} onHide={() => setFireTypeVisible(false)}/>
       <AddFireTeam show={fireTeamVisible} onHide={() => setFireTeamVisible(false)}/>
       <AssignTeamToStation show={assignFireTeamVisible} onHide={() => setAssignFireTeamVisible(false)}/>
+      <AssignFirefighterToTeam show={assignFirefighterVisible} onHide={() => setAssignFirefighterVisible(false)}/>
         </div>
     )
 })

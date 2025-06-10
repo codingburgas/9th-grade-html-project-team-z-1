@@ -1,7 +1,8 @@
 const uuid = require('uuid')
-const {Firefighter} = require('..//models/models')
+const {Firefighter, FireTeam} = require('..//models/models')
 const ApiError = require('../errors/apiError')
 const path = require('path')
+const { where } = require('sequelize')
 
 class FirefighterController {
     async add(req, res, next) {
@@ -12,7 +13,7 @@ class FirefighterController {
 
             image.mv(path.resolve(__dirname, '..', 'static', fileName))
 
-            const firefighter = await Firefighter.create({firstName, lastName, fireTeamId, image: fileName})
+            const firefighter = await Firefighter.create({firstName, lastName, fireTeamId, image: fileName}, {})
             return res.json(firefighter)
         }
         catch (err) {
@@ -56,15 +57,15 @@ class FirefighterController {
     }
 
     async assignToTeam(req, res, next) {
-        const firefighterId = req.params.id
-        const {teamId} = req.body
-
+        const {id} = req.params
+        const {fireTeamId} = req.body
         try {
-            const firefighter = await Firefighter.findByPk(firefighterId)
-            
-            if (!firefighter) return res.status(400).json({message: "Firefighter not found!"})
-            firefighter.fireTeamId = teamId
-            await firefighter.save()
+
+            const firefighter = await Firefighter.update(
+                {fireTeamId},
+                {where: {id: id}}
+            )
+
             
             return res.json(firefighter)
         } catch (err) {

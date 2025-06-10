@@ -5,7 +5,7 @@ import loginPage from "./pages/loginPage"
 import MainPage from "./pages/MainPage"
 import reportPage from "./pages/reportPage"
 import chartsPage from "./pages/chartsPage"
-import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION, MAP, STATION_ROUTE, FIREFIGHTER_ROUTE, FIRE_ENGINE_ROUTE } from "./utils/consts"
+import { ABOUT, ADMIN_ROUTE, CHARTS, INFO, LOGIN_PAGE, MAIN_PAGE_ROUTE, REPORT_A_FIRE, REGISTRATION, MAP, STATION_ROUTE, FIREFIGHTER_ROUTE, FIRE_ENGINE_ROUTE, FIRE_TEAM_ROUTE } from "./utils/consts"
 import registrationPage from "./pages/registrationPage"
 import MapPage from "./pages/mapPage"
 import StationPage from "./pages/stationPage"
@@ -57,7 +57,7 @@ export const publicRoutes = [
     {
         path: FIRE_ENGINE_ROUTE + '/:id',
         Component: FireEnginePage
-    },
+    }
 ]
 
 // Routes that will be accessible only by authorized users (Admins)
