@@ -50,7 +50,8 @@ class fireEngineController {
         const {id} = req.body
 
         let deleteCount = FireEngine.destroy({id})
-        if (deleteCount) return res.json({messa })
+        if (deleteCount) return res.json({})
+        else return res.json({})
     }
 
     async assignAccident(req, res, next) {
@@ -60,6 +61,18 @@ class fireEngineController {
         try {
              const fireEngine = FireEngine.findByPk(fireEngineId)
              fireEngine.accidentId = accidentId
+             return res.json(fireEngine)
+        } catch (err) {
+            next(ApiError.badRequest(err.message))
+        }
+    }
+    async assignTeam(req, res, next) {
+        const fireEngineId = req.params.id
+        const {teamId} = req.body
+
+        try {
+             const fireEngine = FireEngine.findByPk(fireEngineId)
+             fireEngine.fireTeamId = teamId
              return res.json(fireEngine)
         } catch (err) {
             next(ApiError.badRequest(err.message))

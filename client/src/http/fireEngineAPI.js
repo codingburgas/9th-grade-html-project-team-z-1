@@ -22,7 +22,12 @@ export const deleteFireEngine = async (id) => {
     return data
 }
 
-export const assignAccidentToEngine = async (accidentId) => {
-    const {data} = await $host.patch('/api/fireengine',  accidentId)
+export const assignAccidentToEngine = async (id, accidentId) => {
+    const {data} = await $host.patch(`/api/fireengine/${id.id}/assign-accident`,  accidentId)
+    return data
+}
+
+export const assignEngineToTeam = async (id, fireTeamId) => {
+    const {data} = await $host.patch(`/api/fireengine/${id.id}/assign-team`,  fireTeamId)
     return data
 }

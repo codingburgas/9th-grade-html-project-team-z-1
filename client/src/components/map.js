@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 import './styles/map.css'
 import { fetchAccidents, fetchTypes } from "../http/accidentAPI";
 import { Context } from "..";
+import dayJs from 'dayjs'
 
 delete L.Icon.Default.prototype._getIconUrl
 
@@ -62,7 +63,7 @@ export const Map = observer(() => {
                                 <h5 style={{color: 'black'}}>{acc.name}</h5>
                                 <p style={{color: 'black'}}>address: {acc.address}</p>
                                 <p style={{color: 'black'}}>description: {acc.description}</p>
-                                <p style={{color: 'black'}}>start date: {acc.startDate}</p>
+                                <p style={{color: 'black'}}>start date & time: {dayJs(acc.startDate).format("DD.MM.YYYY HH:mm")}</p>
                             </Popup>
                         </Marker>
                     ))

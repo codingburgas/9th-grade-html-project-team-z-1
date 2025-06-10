@@ -1,0 +1,12 @@
+.button {
+    min-width: 400px;
+    color: white;
+    font-size: 20px;
+    margin: 20px;
+    padding: 100px;
+    cursor: pointer;
+    float: left;
+}
+.admin-button:hover {
+    width: 420px;
+}

@@ -8,5 +8,6 @@ router.get('/', fireEngineController.getAll)
 router.get('/:id', fireEngineController.getOne)
 router.delete('/', checkRole('ADMIN'), fireEngineController.remove)
 router.patch('/:id/assign-accident', fireEngineController.assignAccident)
+router.patch('/:id/assign-team', fireEngineController.assignTeam)
 
 module.exports = router

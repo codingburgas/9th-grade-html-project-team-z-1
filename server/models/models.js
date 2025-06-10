@@ -67,6 +67,9 @@ FireTeam.belongsTo(Accident)
 Accident.hasOne(FireEngine)
 FireEngine.belongsTo(Accident)
 
+FireTeam.hasOne(FireEngine)
+FireEngine.belongsTo(FireTeam)
+
 FireTeam.hasMany(Firefighter)
 Firefighter.belongsTo(FireTeam)
 

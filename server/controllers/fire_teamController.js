@@ -41,7 +41,7 @@ class fireTeamController {
     async getOne(req, res, next) {
         const {id} = req.params
         try {
-            const fireTeam = await FireTeam.findOne({id,
+            const fireTeam = await FireTeam.findOne({where: {id},
                 include: Firefighter
             })
             return res.json(fireTeam)

@@ -1,19 +1,21 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import '../styles/modal.css'
-import { assignFirefighter, getFirefighters } from "../../http/firefighterAPI";
+import { getFireEngines, assignEngineToTeam } from "../../http/fireEngineAPI";
 import { getTeams } from "../../http/fireTeamAPI";
+import '../styles/assignFireEngineToTeam.css'
+import '../styles/modal.css'
 
-export const AssignFirefighterToTeam = observer(({show, onHide}) => {
-    const [firefighters, setFirefighters] = useState([])
+export const AssignFireEngineToTeam = observer(({show, onHide}) => {
+    const [fireEngines, setFireEngines] = useState([])
     const [fireTeams, setFireTeams] = useState([])
-    const [firefighterId, setFirefighterId] = useState(1)
+    const [fireEngineId, setFireEngineId] = useState(1)
     const [fireTeamId, setFireTeamId] = useState(1)
 
     useEffect(() => {
-        getFirefighters().then(data => {
-            setFirefighters(data.rows)
-            setFirefighterId(data.rows[0].id)
+        getFireEngines().then(data => {
+            setFireEngines(data.rows)
+            setFireEngineId(data.rows[0].id)
         })
         getTeams().then(data => {
             setFireTeams(data)
@@ -22,7 +24,7 @@ export const AssignFirefighterToTeam = observer(({show, onHide}) => {
     }, [])
 
     const assign = () => {
-        assignFirefighter({id: firefighterId, fireTeamId})
+        assignEngineToTeam({id: fireEngineId, fireTeamId})
     }
 
     if (show)
@@ -33,20 +35,20 @@ export const AssignFirefighterToTeam = observer(({show, onHide}) => {
             id="modal"
             >
                 <div id="container">
-                    <h1 id="title">Add a firefighter</h1>
+                    <h1 id="title">Assign a fire engine</h1>
                     <div className="inputs">
 
                         <select 
-                        name={firefighterId}
-                        onChange={e => setFirefighterId(e.target.value)}
+                        name={fireEngineId}
+                        onChange={e => setFireEngineId(e.target.value)}
                         >
                             {
-                                firefighters.map(firefighter => {
+                                fireEngines.map(engine => {
                                     return <option
-                                    key={firefighter.id}
-                                    value={firefighter.id}
+                                    key={engine.id}
+                                    value={engine.id}
                                     >
-                                        {firefighter.firstName} {firefighter.lastName} 
+                                        {engine.name}
                                     </option>
                                 })
                             }
