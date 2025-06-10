@@ -6,3 +6,7 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+.station-card:hover {
+    transform: rotateZ(2deg);
+}

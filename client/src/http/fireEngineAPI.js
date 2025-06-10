@@ -8,7 +8,7 @@ export const getFireEngines = async (limit = 5, page) => {
 }
 
 export const getOneFireEngine = async (id) => {
-    const {data} = await $host.get(`api/fireengine${id}`)
+    const {data} = await $host.get(`api/fireengine/${id.id}`)
     return data
 }
 

@@ -7,6 +7,7 @@ import { getFireEngines } from "../http/fireEngineAPI";
 import { getTeams } from "../http/fireTeamAPI";
 import { StationCard } from "./stationCard";
 import { FirefighterCard } from "./firefighterCard";
+import { FireEngineCard } from "./fireEngineCard";
 
 export const Info = observer(() => {
 
@@ -60,7 +61,16 @@ export const Info = observer(() => {
             )
         if (category == 'engines')
             return (
+            <div>
                 <h1>Engines</h1>
+                <div className="elements">
+                    {
+                        engines.map(engine => {
+                            return <FireEngineCard key={engine.id} data={engine} />
+                        })
+                    }
+                </div>
+            </div>
             )
         if (category == 'teams')
             return (

@@ -1,0 +1,21 @@
+.fire-engine-card {
+    margin: 20px;
+    padding: 50px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+}
+
+.fire-engine-card:hover {
+    transform: rotateZ(3deg);
+}
+
+.fire-engine-card img {
+    max-height: 300px;
+}
+
+.image {
+    float: left
+}
