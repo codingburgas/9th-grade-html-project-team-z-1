@@ -72,10 +72,10 @@ export const Map = observer(() => {
                 </MapContainer>
             </div>
 
-            <div className="accent">
+            <div className="accent" id="mapText">
                 <h2 className="title">Filters</h2>
-                <form>
-                    <select
+                <form><label for = "type"> Enter fire's type</label>
+                    <select name = "type"
                     onChange={e => setSelectedType(e.target.value)}
                     style={{color: 'black'}}
                     >
@@ -88,16 +88,20 @@ export const Map = observer(() => {
                                             {type.name}
                                     </option>
                         })}
-                    </select>
-
-                    <input
+                    </select><br></br>
+ <label for = "startDate"> Enter starting date</label>
+                    <input name = "startDate"
                     type="date"
                     value={startDate}
                     onChange={e => setStartDate(e.target.value)}></input>
-                    <input
+                   <br></br>
+                        <label for = "endDate"> Enter ending date</label>
+                    <input name = "endDate"
                     type="date"
                     value={endDate}
                     onChange={e => setEndDate(e.target.value)}></input>
+                  
+                     <br></br>
                 </form>
                 <p>Accidents: {accidentsCount}</p>
                 

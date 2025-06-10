@@ -15,16 +15,16 @@ body {
 
 }
 
-.container {
+.containerMain {
     width: 50vw;
     font-size: 20px;
     text-align: center;
     font-family: sans-serif;
     margin-top: 30px;
 }
-.button {
+.buttonMain {
 
-    padding:  35px 50px;
+    padding:  15px 50px;
     background-color: #820707;
     color: rgb(255, 255, 255); 
     border-radius: 10px; 
@@ -34,8 +34,13 @@ body {
     border:none;
   margin-top: 70px;
 margin-left: 17vw;
+text-decoration: none;
 }
+.buttonMain a{
+ color: rgb(255, 255, 255); 
+ text-decoration: none;
 
+}
 .button:hover {
     background-color: #fc5137; 
 }
