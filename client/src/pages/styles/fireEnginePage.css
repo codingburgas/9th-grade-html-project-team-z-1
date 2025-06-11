@@ -1,0 +1,50 @@
+@import url(./themesVariables.css);
+
+#content {
+    margin: 50px auto;
+    padding: 0 100px;
+    padding-bottom: 50vh;
+    height: 60vh;
+    width: 50vw;
+}
+
+.station-map {
+    width: 50vw;
+    height: 50vh;
+}
+
+.station-mapContainer {
+    width: 100%;
+    height: 100%;
+}
+
+.station-tileLayer {
+    width: inherit;
+    height: inherit;
+}
+
+#info {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 20px;
+    font-size: 20px;
+}
+
+#info img {
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-right: 20px
+}
+
+#info-text {    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    margin: 5px auto;
+}

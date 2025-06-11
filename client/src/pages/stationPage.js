@@ -30,7 +30,7 @@ const StationPage = () => {
         {
           station ?
           <div className='station-map'>
-        <h2>Location</h2>
+        <h2>Location:</h2>
         <MapContainer 
             center={[station.latitude, station.longtitude]} 
             zoom={17} 

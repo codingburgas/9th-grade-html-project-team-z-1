@@ -27,7 +27,6 @@ const FirefighterPage = () => {
       async function fetchData() {
         const firefighterData = await getOneFirefighter({ id });
         setfirefighter(firefighterData);
-        console.log(firefighter)
 
         const teamData = await getOneTeam({ id: firefighterData.fireTeamId});
         setFireTeam(teamData);
