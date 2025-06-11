@@ -27,9 +27,10 @@ const StationPage = () => {
 
   return (
     <div className='Primary content'>
-      <div className='station-map'>
         {
           station ?
+          <div className='station-map'>
+        <h2>Location</h2>
         <MapContainer 
             center={[station.latitude, station.longtitude]} 
             zoom={17} 
@@ -47,10 +48,15 @@ const StationPage = () => {
                   </Popup>
                 </Marker>
           </MapContainer>
+              <h2>Information:</h2>
+            <div id='info' className='Secondary'>
+              <p>Station name: {station.name}</p>
+              <p>Station address: {station.address}</p>
+            </div>
+            </div>
                 :
                 <h1>Loading</h1>
                 }
-      </div>
     </div>
   );
 }

@@ -22,7 +22,7 @@ const {user} = useContext(Context)
    <li className = 'elem'><NavLink to={MAP}>Map</NavLink></li>
    <li className = 'elem'><NavLink to={REPORT_A_FIRE}>Report a fire</NavLink></li>
    <li className = 'elem'><NavLink to={INFO}>Info</NavLink></li>
-   <li className = 'elem'><NavLink to={ABOUT}>About</NavLink></li>
+   <li className = 'elem'><NavLink to={ABOUT}>About Us</NavLink></li>
    <li className = 'elem'><NavLink className='change-theme'
                     onClick={toggleTheme}>
                 Theme ({theme})</NavLink></li>

@@ -5,27 +5,14 @@
     padding: 70px;
     cursor: pointer;
     width: 100%;
-      height: 35px;
+    height: 35px;
 }
 .admin-button:hover {
     width: 420px;
 }
-.right
-{
- 
-
-}
-.center{
-   
-
-}
 .adminButtons
 {
     display:flex;
-    justify-content: space-between;
-}
-.adminButtons div{
-    width: 20vw;
-  
-
+    justify-content: flex-start;
+    justify-self: center;
 }

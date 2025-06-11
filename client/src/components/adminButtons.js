@@ -59,7 +59,8 @@ export const AdminButtons = observer(() => {
                 Add a fire team
             </button>
             </div>
-            <div className="center">
+
+            <div className="right">
             <button 
             id="add-fireType" 
             className="Primary admin-button"

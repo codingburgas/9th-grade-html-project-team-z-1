@@ -1,6 +1,5 @@
 import React from 'react'
 import { AdminButtons } from '../components/adminButtons';
-import "./styles/AdminPage.css" 
 
 const AdminPage = () => {
 

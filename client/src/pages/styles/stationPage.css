@@ -1,10 +1,10 @@
 .content {
     width: 70vw;
-    height: 70vh;
-    position: fixed;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -60%);
+    height: 60vh;
+    padding-bottom: 350px;
+    display: flex;
+    justify-self: center;
+    margin: 50px;
 }
 
 .station-map {
@@ -20,4 +20,16 @@
 .station-tileLayer {
     width: inherit;
     height: inherit;
+}
+
+#info {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 2px solid black;
+    width: 100%;
+    margin: 15px auto;
+    border-radius: 20px;
+    font-size: 20px;
 }

@@ -26,13 +26,13 @@ const ClickHandler = ({onMapClick}) => {
 }
 
 export const AddFireStation = observer(({show, onHide}) => {
-    const {fireStation} = useContext(Context)
     const [name, setName] = useState()
     const [address, setAddress] = useState()
     const [latitude, setLatitude] = useState()
     const [longitude, setLongitude] = useState()
     const [markerCoords, setMarkerCoords] = useState()
 
+    // Returns full address of a point (latitude and longitude)
     const getAddress = async (lat, lon) => {
         const response = await fetch(
             `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`
