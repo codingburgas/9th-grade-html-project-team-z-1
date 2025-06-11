@@ -1,10 +1,8 @@
 .station-card {
+    width: 100%;
     margin: 20px 50px;
-    height: 50px;
     font-size: 20px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
 }
 
 .station-card:hover {

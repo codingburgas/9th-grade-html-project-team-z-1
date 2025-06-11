@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import './styles/mainPage.css'
 import './styles/firefighterPage.css'
 import { useParams } from 'react-router-dom'
 import { getOneFirefighter } from '../http/firefighterAPI'
@@ -40,11 +39,12 @@ const FirefighterPage = () => {
     }, [])
 
     return (
-      <div className='Primary content'>
-        <div className='station-map'>
+      <div className='Primary' id='content'>
           {
             fireStation ?
-              <>
+              <div>
+                <h2>Location:</h2>
+                <div className='station-map'>
                 <MapContainer 
                 center={[fireStation.latitude, fireStation.longtitude]}
                 zoom={17} 
@@ -58,15 +58,26 @@ const FirefighterPage = () => {
                     <Marker position={[fireStation.latitude, fireStation.longtitude]}>
                       <Popup>
                           <h5>{firefighter.firstName} {firefighter.lastName}</h5>
+                          <p>State: {firefighter.state}</p>
                       </Popup>
                     </Marker>
                 </MapContainer>
-                <p>{fireTeam.name}</p>
-              </>
+                <h2>Information: </h2>
+                    <div className='Secondary' id='info'>
+                      <img width={150} src={process.env.REACT_APP_API_URL + '/' + firefighter.image}></img>
+                      <div id='info-text'>
+                        <p>Names: {firefighter.firstName} {firefighter.lastName}</p>
+                        <p>Team: {fireTeam.name}</p>
+                        <p>Station: {fireStation.name}</p>
+                        <p>Station address: {fireStation.address}</p>
+                        <p>State: {firefighter.state}</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
               :
               <h1>Loading</h1>
             }
-        </div>
       </div>
     );
 }

@@ -5,8 +5,6 @@ body {
     overflow: scroll;
     display: flex;
     justify-content: space-between;
-
-
 }
 
 .main_logo {
@@ -32,6 +30,8 @@ body {
     cursor: pointer; 
     transition: background-color 0.3s; 
     border:none;
+    margin-top: 70px;
+    margin-left: 17vw;
   margin-top: 70px;
 margin-left: 17vw;
 text-decoration: none;

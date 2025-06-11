@@ -16,8 +16,13 @@
     width: inherit;
     height: inherit;
 }
+.title {
+    display: flex;
+    justify-self: center;
+}
 
-.accent {
+#mapText{
+    font-size: 20px;
     width: 20vw;
     height: 80vh;
     margin: 10px;
@@ -27,11 +32,24 @@
     z-index: 10;;
 }
 
-.title {
+#mapText form {
     display: flex;
+    flex-direction: column;
+    width: 50%;
     justify-self: center;
 }
-.mapText{
+
+#mapText form input,#mapText form select {
     font-size: 20px;
+    background-color: #dcdcdc;
 }
 
+#mapText form label {
+    color: white;
+}
+
+#count {
+    display: flex;
+    justify-self: center;
+    color: white;
+}

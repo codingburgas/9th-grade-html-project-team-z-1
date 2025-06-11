@@ -1,7 +1,6 @@
 .reportForm {
-    width: 40vw;
+    width: 60vw;
     margin: 10vh auto;
-    color: #e25a5a;
     display: flex;
     justify-content: center;
     padding-bottom: 100px;
@@ -9,20 +8,30 @@
 
 .reportForm form {
     display: flex;
-    background-color: white;
     flex-direction: column;
     align-items: center;
+    justify-self: center;
     margin: auto;
     width: 100%;
     padding: 50px;
     margin-bottom: 50px;
 }
 
+.reportForm form input, .reportForm form select {
+    font-size: 20px;
+    background-color: #dcdcdc;
+}
+
+.reportForm label {
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
 .container {
     border-radius: 10px;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-self: center;
 }
 
 .map {

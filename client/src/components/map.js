@@ -68,13 +68,13 @@ export const Map = observer(() => {
                         </Marker>
                     ))
                 }
-
                 </MapContainer>
             </div>
 
             <div className="accent" id="mapText">
                 <h2 className="title">Filters</h2>
-                <form><label for = "type"> Enter fire's type</label>
+                <form>
+                    <label for = "type"> Enter fire's type</label>
                     <select name = "type"
                     onChange={e => setSelectedType(e.target.value)}
                     style={{color: 'black'}}
@@ -89,7 +89,7 @@ export const Map = observer(() => {
                                     </option>
                         })}
                     </select><br></br>
- <label for = "startDate"> Enter starting date</label>
+                    <label for = "startDate"> Enter starting date</label>
                     <input name = "startDate"
                     type="date"
                     value={startDate}
@@ -103,7 +103,7 @@ export const Map = observer(() => {
                   
                      <br></br>
                 </form>
-                <p>Accidents: {accidentsCount}</p>
+                <p id="count">Accidents found: {accidentsCount}</p>
                 
             </div>
         </div>

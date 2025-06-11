@@ -89,10 +89,10 @@ export const Report = observer(()=> {
     }
 
     return (
-        <div className="reportForm">
+        <div className="Primary reportForm">
             <div className="container">
                 <form onSubmit={e => e.preventDefault()}>
-                    <h2 className="dark-text">Report a fire</h2>
+                    <h1>Report a fire</h1>
 
                     <input type="text"
                     placeholder="Enter accident's name" 
@@ -104,7 +104,7 @@ export const Report = observer(()=> {
                     value={description}
                     onChange={e => setDescription(e.target.value)}></input>
                     
-                    <label style={{color: "black"}}>
+                    <label>
                         Choose accident type
                     </label>
 

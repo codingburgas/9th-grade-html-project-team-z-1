@@ -13,12 +13,12 @@ const {user} = useContext(Context)
         <nav className='Secondary'>
       
        <div>   
-  <img src ='./assets/ZOF_logoNavbar.png' className = 'logo' alt='logo'/> 
+  <NavLink to={MAIN_PAGE_ROUTE}><img src ='./assets/ZOF_logoNavbar.png' className = 'logo' alt='logo'/></NavLink>
   </div>  
     <ul>
 
    <li className = 'elem'><NavLink to={MAIN_PAGE_ROUTE}>Home</NavLink></li>
-   <li className = 'elem'><NavLink to={CHARTS}>Charts</NavLink></li>
+   <li className = 'elem'><NavLink to={CHARTS}>Statistics</NavLink></li>
    <li className = 'elem'><NavLink to={MAP}>Map</NavLink></li>
    <li className = 'elem'><NavLink to={REPORT_A_FIRE}>Report a fire</NavLink></li>
    <li className = 'elem'><NavLink to={INFO}>Info</NavLink></li>
