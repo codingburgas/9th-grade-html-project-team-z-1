@@ -38,7 +38,7 @@ const FireEnginePage = () => {
                         <p>Name: {fireEngine.name}</p>
                         <p>Description: {fireEngine.description}</p>
                         <p>Fire Team: {fireTeam.name}</p>
-                        <p>Fire Station: {fireStation.id}</p>
+                        <p>Fire Station: {fireStation.name}</p>
                         <p>Fire address: {fireStation.address}</p>
                         <p>State: {fireEngine.state}</p>
                       </div>

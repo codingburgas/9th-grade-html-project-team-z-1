@@ -27,3 +27,9 @@ export const assignTeamToStation = async (props) => {
     const {data} = await $authHost.patch(`/api/fireteam/${id}/assign-to-station`, {fireStationId})
     return data
 }
+
+export const assignAccident = async (props) => {
+    const {id, accidentId} = props
+    const {data} = await $authHost.patch(`/api/fireteam/${id}/assign-accident`, {accidentId})
+    return data
+}

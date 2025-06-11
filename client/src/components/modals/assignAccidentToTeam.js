@@ -1,20 +1,21 @@
 import { observer } from "mobx-react-lite";
 import React, { useEffect, useState } from "react";
 import '../styles/modal.css'
-import { getFireEngines, assignEngineToTeam } from "../../http/fireEngineAPI";
+import {fetchAccidents} from '../../http/accidentAPI'
+import {assignAccident} from '../../http/fireTeamAPI'
 import { getTeams } from "../../http/fireTeamAPI";
 import '../styles/modal.css'
 
-export const AssignFireEngineToTeam = observer(({show, onHide}) => {
-    const [fireEngines, setFireEngines] = useState([])
+export const AssignAccidentToTeam = observer(({show, onHide}) => {
+    const [accidents, setAccidents] = useState([])
     const [fireTeams, setFireTeams] = useState([])
-    const [fireEngineId, setFireEngineId] = useState(1)
+    const [accidentId, setAccidentId] = useState(1)
     const [fireTeamId, setFireTeamId] = useState(1)
 
     useEffect(() => {
-        getFireEngines().then(data => {
-            setFireEngines(data.rows)
-            setFireEngineId(data.rows[0].id)
+        fetchAccidents().then(data => {
+            setAccidents(data.rows)
+            setAccidentId(data.rows[0].id)
         })
         getTeams().then(data => {
             setFireTeams(data)
@@ -23,10 +24,9 @@ export const AssignFireEngineToTeam = observer(({show, onHide}) => {
     }, [])
 
     const assign = () => {
-        console.log(fireTeamId, fireEngineId)
-        assignEngineToTeam({
-            id: fireEngineId,
-            fireTeamId: fireTeamId
+        assignAccident({
+            id: fireTeamId,
+            accidentId: accidentId
         })
     }
 
@@ -38,20 +38,20 @@ export const AssignFireEngineToTeam = observer(({show, onHide}) => {
             id="modal"
             >
                 <div id="container">
-                    <h1 id="title">Assign a fire engine</h1>
+                    <h1 id="title">Assign a team to accident</h1>
                     <div className="inputs">
 
                         <select 
-                        name={fireEngineId}
-                        onChange={e => setFireEngineId(e.target.value)}
+                        name={accidentId}
+                        onChange={e => setAccidentId(e.target.value)}
                         >
                             {
-                                fireEngines.map(engine => {
+                                accidents.map(acc => {
                                     return <option
-                                    key={engine.id}
-                                    value={engine.id}
+                                    key={acc.id}
+                                    value={acc.id}
                                     >
-                                        {engine.name}
+                                        {acc.name}
                                     </option>
                                 })
                             }
@@ -74,7 +74,7 @@ export const AssignFireEngineToTeam = observer(({show, onHide}) => {
                     </div>
                     <div id="buttons">
                     <button onClick={onHide}>Close</button>
-                    <button onClick={assign}>Add</button>
+                    <button onClick={assign}>Assign</button>
                     </div>
                 </div>
             </div>

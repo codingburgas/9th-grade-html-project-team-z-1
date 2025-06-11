@@ -10,9 +10,19 @@
 .admin-button:hover {
     width: 420px;
 }
+
+.left {
+    float: right;
+}
+
+.right {
+    float: left;
+}
+
 .adminButtons
 {
-    display:flex;
-    justify-content: flex-start;
+    width: 60vw;
+    display: flex;
+    justify-content: space-between;
     justify-self: center;
 }

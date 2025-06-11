@@ -72,6 +72,20 @@ class fireTeamController {
             next(ApiError.badRequest(err.message))
         }
     }
+    async assignAccident(req, res, next) {
+        const fireTeamId = req.params.id
+        const {accidentId} = req.body
+
+        try {
+            const team = await FireTeam.update(
+                {accidentId},
+                {where: {id: fireTeamId}}
+            )
+            return res.json(team)
+        } catch (err) {
+            next(ApiError.badRequest(err.message))
+        }
+    }
 }
 
 module.exports = new fireTeamController()

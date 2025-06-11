@@ -8,6 +8,7 @@ import { AddAccidentType } from "./modals/addAccidentType";
 import { AssignTeamToStation } from "./modals/assignTeamToStation";
 import { AssignFirefighterToTeam } from "./modals/assignFirefighterToTeam";
 import { AssignFireEngineToTeam } from "./modals/assignFireEngineToTeam";
+import { AssignAccidentToTeam } from "./modals/assignAccidentToTeam";
 import './styles/adminButtons.css'
 
 export const AdminButtons = observer(() => {
@@ -19,6 +20,7 @@ export const AdminButtons = observer(() => {
   const [assignFireTeamVisible, setAssignFireTeamVisible] = useState(false)
   const [assignFirefighterVisible, setAssignFirefighterVisible] = useState(false)
   const [assignFireEngineToTeamVisible, setAssignFireEngineToTeamVisible] = useState(false)
+  const [assignAccidentToTeamVisible, setAssignAccidentToTeamVisible] = useState(false)
 
     return (
         <div className="adminButtons">
@@ -83,6 +85,13 @@ export const AdminButtons = observer(() => {
             >  
                 Assign a fire engine to a fire team
             </button>
+            <button 
+            id="add-fireType" 
+            className="Primary admin-button"
+            onClick={() => setAssignAccidentToTeamVisible(true)}
+            >  
+                Assign an accident to team
+            </button>
             </div>
       <AddFireStation show={fireStationVisible} onHide={() => setFireStationVisible(false)}/>
       <AddFirefighter show={firefighterVisible} onHide={() => setFirefighterVisible(false)}/>
@@ -92,6 +101,7 @@ export const AdminButtons = observer(() => {
       <AssignTeamToStation show={assignFireTeamVisible} onHide={() => setAssignFireTeamVisible(false)}/>
       <AssignFirefighterToTeam show={assignFirefighterVisible} onHide={() => setAssignFirefighterVisible(false)}/>
       <AssignFireEngineToTeam show={assignFireEngineToTeamVisible} onHide={() => setAssignFireEngineToTeamVisible(false)}/>
+      <AssignAccidentToTeam show={assignAccidentToTeamVisible} onHide={() => setAssignAccidentToTeamVisible(false)}/>
         </div>
     )
 })
